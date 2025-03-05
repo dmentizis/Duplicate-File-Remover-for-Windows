@@ -1,0 +1,3 @@
+1. Implement the Delete / Cleanup Methods.
+2. Design and Implement Filtering for the unique files list (Show All / Show only Single Entries / Show Only entries with duplicates).
+3. Implement Progress Bar.
