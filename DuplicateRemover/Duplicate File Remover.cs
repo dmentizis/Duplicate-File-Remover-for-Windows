@@ -424,11 +424,19 @@ namespace DuplicateRemover
 
         private void btnShowDuplicates_Click(object sender, EventArgs e)
         {
-            if (!btnShowDuplicates.Enabled)
+            if (btnShowDuplicates.Enabled)
             {
-                if (_files.Count < 0)
+                if (_files.Count > 0)
                 {
+                    lbUniqueFiles.Items.Clear();
 
+                    foreach (var file in _files)
+                    {
+                        if (file.Paths.Count > 1)
+                        {
+                            AddItemToUniqueFiles(file.Hash);
+                        }
+                    }
                 }
             }
         }
