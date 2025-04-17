@@ -1,8 +1,6 @@
 using DuplicateRemover.Objects;
 using System.ComponentModel;
-using System.Drawing.Drawing2D;
 using System.Security.Cryptography;
-using System.Security.Policy;
 
 namespace DuplicateRemover
 {
@@ -433,6 +431,41 @@ namespace DuplicateRemover
                     foreach (var file in _files)
                     {
                         if (file.Paths.Count > 1)
+                        {
+                            AddItemToUniqueFiles(file.Hash);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            if (btnShowAll.Enabled)
+            {
+                if (_files.Count > 0)
+                {
+                    lbUniqueFiles.Items.Clear();
+
+                    foreach (var file in _files)
+                    {
+                        AddItemToUniqueFiles(file.Hash);
+                    }
+                }
+            }
+        }
+
+        private void btnShowSinlges_Click(object sender, EventArgs e)
+        {
+            if (btnShowSinlges.Enabled)
+            {
+                if (_files.Count > 0)
+                {
+                    lbUniqueFiles.Items.Clear();
+
+                    foreach (var file in _files)
+                    {
+                        if (file.Paths.Count == 1)
                         {
                             AddItemToUniqueFiles(file.Hash);
                         }

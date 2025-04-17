@@ -259,6 +259,7 @@ namespace DuplicateRemover
             btnShowSinlges.TabIndex = 7;
             btnShowSinlges.Text = "Show Only Sinlge Entries";
             btnShowSinlges.UseVisualStyleBackColor = true;
+            btnShowSinlges.Click += btnShowSinlges_Click;
             // 
             // btnShowDuplicates
             // 
@@ -278,6 +279,7 @@ namespace DuplicateRemover
             btnShowAll.TabIndex = 5;
             btnShowAll.Text = "Show All";
             btnShowAll.UseVisualStyleBackColor = true;
+            btnShowAll.Click += btnShowAll_Click;
             // 
             // btnAutoClean
             // 
