@@ -12,3 +12,4 @@ namespace DuplicateRemover.Objects
         public required string Hash { get; set; }
     }
 }
+//test
