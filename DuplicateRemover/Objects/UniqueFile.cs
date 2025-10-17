@@ -8,11 +8,13 @@ namespace DuplicateRemover.Objects
 {
     public class UniqueFile
     {
-        public required string Hash {  get; set; }
-        public List<string> Paths { get; set; }
-        public UniqueFile() 
+        public UniqueFile()
         {
             Paths = new List<string>();
         }
+        public required string Hash {  get; set; }
+        //public long SizeInBytes { get; set; }
+        //public required string Extension { get; set; }
+        public List<string> Paths { get; set; }
     }
 }
