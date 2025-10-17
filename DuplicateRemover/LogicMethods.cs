@@ -1,5 +1,8 @@
 ﻿using DuplicateRemover.Objects;
+using System.CodeDom;
+using System.Diagnostics;
 using System.IO;
+using System.Security.Policy;
 
 namespace DuplicateRemover
 {
@@ -85,6 +88,57 @@ namespace DuplicateRemover
             }
             return physicalFiles;
         }
+
+        public static void AutoCleanList(List<UniqueFile> UniqueFiles)
+        {
+            if(UniqueFiles.Count == 0)
+            {
+                throw new Exception("File list is empty");
+            }
+
+            foreach(UniqueFile file in UniqueFiles)
+            {
+                if(file.Paths.Count <= 1)
+                    continue;
+                else
+                    file.Paths.Sort();
+
+                if (file.Paths.Count > 1)
+                    foreach (string filePath in file.Paths)
+                        DeleteFile(filePath);
+            }    
+        }
+
+        public static void KeepOnlySelectedFile(UniqueFile UniqueFile, string FilePath)
+        {
+            UniqueFile.Paths.Remove(FilePath);
+            
+            if (UniqueFile.Paths.Count <= 1)
+                return;
+
+            DeleteFiles(UniqueFile.Paths);            
+        }
+
+        public static void KeepOnlyFirstFile(UniqueFile UniqueFile)
+        {
+            UniqueFile.Paths.Sort();
+            
+            if (UniqueFile.Paths.Count <= 1)
+                return;
+
+            UniqueFile.Paths.RemoveAt(0);
+
+            DeleteFiles(UniqueFile.Paths);
+        }
+
+        public static void OpenFileLocation(String FilePath)
+        {
+            if (File.Exists(FilePath))
+            {
+                Process.Start("explorer.exe", FilePath);
+            }
+        }
         #endregion
+
     }
 }
