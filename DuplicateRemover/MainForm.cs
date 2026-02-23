@@ -7,6 +7,7 @@ namespace DuplicateRemover
     {
         #region Form properties
         private string? _directory = null;
+        private List<UniqueFile> uniqueFiles = new();
         public string? Directory
         {
             get { return _directory; }
@@ -33,6 +34,12 @@ namespace DuplicateRemover
             InitializeComponent();
             txbDirectory.DataBindings.Add("Text", this, "Directory", false, DataSourceUpdateMode.OnPropertyChanged);
             //btnScanFolderOnly.Enabled = string.IsNullOrWhiteSpace(_directory);
+
+            uniqueFiles.Add(new UniqueFile() { Hash = "Hash1", Paths = new List<string>() { "Path1", "Path2" } });
+            uniqueFiles.Add(new UniqueFile() { Hash = "Hash2", Paths = new List<string>() { "Path3" } });
+            bsUniqueFiles.DataSource = uniqueFiles;
+            dgUniqueFiles.Refresh();
+            dgUniqueFiles.RefreshEdit();
         }
 
         #region Form Events
