@@ -6,5 +6,6 @@
         public long SizeInBytes { get; set; }
         public string? Extension { get; set; }
         public required string Hash { get; set; }
+        public bool Selected { get; set; }
     }
 }

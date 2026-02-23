@@ -8,6 +8,7 @@ namespace DuplicateRemover
         #region Form properties
         private string? _directory = null;
         private List<UniqueFile> uniqueFiles = new();
+        private List<PhysicalFile> physicalFiles = new();
         public string? Directory
         {
             get { return _directory; }
@@ -40,6 +41,14 @@ namespace DuplicateRemover
             bsUniqueFiles.DataSource = uniqueFiles;
             dgUniqueFiles.Refresh();
             dgUniqueFiles.RefreshEdit();
+
+            physicalFiles.Add(new PhysicalFile() { Hash = "Hash1", Path = "Path1" });
+            physicalFiles.Add(new PhysicalFile() { Hash = "Hash1", Path = "Path2" });
+            physicalFiles.Add(new PhysicalFile() { Hash = "Hash2", Path = "Path3" });
+            physicalFiles.Add(new PhysicalFile() { Hash = "Hash3", Path = "Path4" });
+            bsPhysicalFiles.DataSource = physicalFiles;
+            dgPhysicalFiles.Refresh();
+            dgPhysicalFiles.RefreshEdit();
         }
 
         #region Form Events
