@@ -9,6 +9,7 @@ namespace DuplicateRemover
         private string? _directory = null;
         private List<UniqueFile> uniqueFiles = new();
         private List<PhysicalFile> physicalFiles = new();
+        private enum States { ReadyToScan, Scanning, ReadyToClean, Cleaning};
         public string? Directory
         {
             get { return _directory; }
