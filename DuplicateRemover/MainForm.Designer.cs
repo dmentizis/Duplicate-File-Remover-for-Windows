@@ -176,16 +176,20 @@
             // 
             // hashDataGridViewTextBoxColumn
             // 
+            hashDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             hashDataGridViewTextBoxColumn.DataPropertyName = "Hash";
+            hashDataGridViewTextBoxColumn.FillWeight = 71.79487F;
             hashDataGridViewTextBoxColumn.HeaderText = "Hash";
-            hashDataGridViewTextBoxColumn.MinimumWidth = 10;
+            hashDataGridViewTextBoxColumn.MinimumWidth = 200;
             hashDataGridViewTextBoxColumn.Name = "hashDataGridViewTextBoxColumn";
             hashDataGridViewTextBoxColumn.ReadOnly = true;
+            hashDataGridViewTextBoxColumn.Width = 600;
             // 
             // Action
             // 
+            Action.FillWeight = 128.205139F;
             Action.HeaderText = "Action";
-            Action.MinimumWidth = 10;
+            Action.MinimumWidth = 100;
             Action.Name = "Action";
             Action.ReadOnly = true;
             Action.Text = "Show Folders";
@@ -429,15 +433,19 @@
             // 
             // pathDataGridViewTextBoxColumn
             // 
+            pathDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             pathDataGridViewTextBoxColumn.DataPropertyName = "Path";
+            pathDataGridViewTextBoxColumn.FillWeight = 38.4615364F;
             pathDataGridViewTextBoxColumn.HeaderText = "Path";
-            pathDataGridViewTextBoxColumn.MinimumWidth = 10;
+            pathDataGridViewTextBoxColumn.MinimumWidth = 100;
             pathDataGridViewTextBoxColumn.Name = "pathDataGridViewTextBoxColumn";
             pathDataGridViewTextBoxColumn.ReadOnly = true;
+            pathDataGridViewTextBoxColumn.Width = 150;
             // 
             // sizeInBytesDataGridViewTextBoxColumn
             // 
             sizeInBytesDataGridViewTextBoxColumn.DataPropertyName = "SizeInBytes";
+            sizeInBytesDataGridViewTextBoxColumn.FillWeight = 38.4615364F;
             sizeInBytesDataGridViewTextBoxColumn.HeaderText = "SizeInBytes";
             sizeInBytesDataGridViewTextBoxColumn.MinimumWidth = 10;
             sizeInBytesDataGridViewTextBoxColumn.Name = "sizeInBytesDataGridViewTextBoxColumn";
@@ -446,6 +454,7 @@
             // extensionDataGridViewTextBoxColumn
             // 
             extensionDataGridViewTextBoxColumn.DataPropertyName = "Extension";
+            extensionDataGridViewTextBoxColumn.FillWeight = 38.4615364F;
             extensionDataGridViewTextBoxColumn.HeaderText = "Extension";
             extensionDataGridViewTextBoxColumn.MinimumWidth = 10;
             extensionDataGridViewTextBoxColumn.Name = "extensionDataGridViewTextBoxColumn";
@@ -454,6 +463,7 @@
             // hashDataGridViewTextBoxColumn1
             // 
             hashDataGridViewTextBoxColumn1.DataPropertyName = "Hash";
+            hashDataGridViewTextBoxColumn1.FillWeight = 38.4615364F;
             hashDataGridViewTextBoxColumn1.HeaderText = "Hash";
             hashDataGridViewTextBoxColumn1.MinimumWidth = 10;
             hashDataGridViewTextBoxColumn1.Name = "hashDataGridViewTextBoxColumn1";
@@ -462,6 +472,7 @@
             // Selected
             // 
             Selected.DataPropertyName = "Selected";
+            Selected.FillWeight = 38.4615364F;
             Selected.HeaderText = "Selected";
             Selected.MinimumWidth = 10;
             Selected.Name = "Selected";
@@ -470,8 +481,9 @@
             // Navigate
             // 
             Navigate.DataPropertyName = "Path";
+            Navigate.FillWeight = 407.692322F;
             Navigate.HeaderText = "Navigate";
-            Navigate.MinimumWidth = 10;
+            Navigate.MinimumWidth = 180;
             Navigate.Name = "Navigate";
             Navigate.ReadOnly = true;
             Navigate.Text = "Show in Folder";
@@ -530,10 +542,10 @@
         private Button btnKeepFirst;
         private DataGridView dgUniqueFiles;
         private BindingSource bsUniqueFiles;
-        private DataGridViewTextBoxColumn hashDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn Action;
         private DataGridView dgPhysicalFiles;
         private BindingSource bsPhysicalFiles;
+        private DataGridViewTextBoxColumn hashDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn Action;
         private DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sizeInBytesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn extensionDataGridViewTextBoxColumn;
