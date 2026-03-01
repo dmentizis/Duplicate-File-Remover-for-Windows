@@ -26,9 +26,6 @@ namespace DuplicateRemover
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
-        private string[]? _fileDirectories = null;
-        private List<UniqueFile> _files = new List<UniqueFile>();
-
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
         public MainForm()
@@ -67,8 +64,8 @@ namespace DuplicateRemover
             }
             if (_directory != null && txbDirectory.Text != string.Empty)
             {
-                btnScanFolderAndSubfolders.Enabled = true;
-                btnScanFolderOnly.Enabled = true;
+                cbIncludeSubfolders.Enabled = true;
+                btnScan.Enabled = true;
             }
         }
 
@@ -84,12 +81,14 @@ namespace DuplicateRemover
 
         private void btnScanFolderOnly_Click(object sender, EventArgs e)
         {
-
+            //BindingList<UniqueFile> files = new BindingList<UniqueFile>();
+            //bsUniqueFiles.DataSource = files;
+            //dgUniqueFiles.DataSource = bsUniqueFiles;
+            bsUniqueFiles.Clear();
         }
         #endregion
 
         #region Private Methods
         #endregion
-
     }
 }
