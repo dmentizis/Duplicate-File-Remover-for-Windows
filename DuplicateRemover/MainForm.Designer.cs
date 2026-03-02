@@ -63,6 +63,7 @@
             btnChooseDirectory = new Button();
             lblTotalFiles = new Label();
             btnScan = new Button();
+            bsIncludeSubfolders = new BindingSource(components);
             gbExecution = new GroupBox();
             gbExecution.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -73,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).BeginInit();
             gbDirectory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).BeginInit();
             SuspendLayout();
             // 
             // gbExecution
@@ -448,6 +450,7 @@
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).EndInit();
             gbDirectory.ResumeLayout(false);
             gbDirectory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).EndInit();
             ResumeLayout(false);
         }
 
@@ -486,5 +489,6 @@
         private DataGridViewCheckBoxColumn Selected;
         private DataGridViewButtonColumn Navigate;
         private CheckBox cbIncludeSubfolders;
+        private BindingSource bsIncludeSubfolders;
     }
 }
