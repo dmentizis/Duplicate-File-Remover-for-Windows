@@ -9,7 +9,7 @@ namespace DuplicateRemover
         private List<UniqueFile> _uniqueFiles = new();
         private List<PhysicalFile> _physicalFiles = new();
         private enum States { NoFolderChosen, ReadyToScan, Scanning, ReadyToClean, Cleaning };
-        
+
         private string? _directory = null;
         public string? Directory
         {
@@ -40,27 +40,20 @@ namespace DuplicateRemover
 
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
+        
         public MainForm()
         {
             InitializeComponent();
-            txbDirectory.DataBindings.Add("Text", this, "Directory", false, DataSourceUpdateMode.OnPropertyChanged);
-
             UpdateFormState(States.NoFolderChosen);
 
-            _uniqueFiles.Add(new UniqueFile() { Hash = "Hash1", Paths = new List<string>() { "Path1", "Path2" } });
-            _uniqueFiles.Add(new UniqueFile() { Hash = "Hash2", Paths = new List<string>() { "Path3" } });
-            
-            bsIncludeSubfolders.DataSource = _includeSubfolders;
+            txbDirectory.DataBindings.Add("Text", this, "Directory", false, DataSourceUpdateMode.OnPropertyChanged);
             cbIncludeSubfolders.DataBindings.Add("Checked", this, "IncludeSubfolders", false, DataSourceUpdateMode.OnPropertyChanged);
 
             bsUniqueFiles.DataSource = _uniqueFiles;
             dgUniqueFiles.Refresh();
             dgUniqueFiles.RefreshEdit();
 
-            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash1", Path = "Path1" });
-            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash1", Path = "Path2" });
-            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash2", Path = "Path3" });
-            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash3", Path = "Path4" });
+
             bsPhysicalFiles.DataSource = _physicalFiles;
             dgPhysicalFiles.Refresh();
             dgPhysicalFiles.RefreshEdit();
@@ -71,15 +64,13 @@ namespace DuplicateRemover
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
             folderDlg.ShowNewFolderButton = true;
-            // Show the FolderBrowserDialog.
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //OnPropertyChanged("Directory");
-                //_directory = folderDlg.SelectedPath;
-                //txbDirectory.Text = _directory;
-                //Environment.SpecialFolder root = folderDlg.RootFolder;
                 Directory = folderDlg.SelectedPath;
+                bsUniqueFiles.Clear();
+                bsPhysicalFiles.Clear();
+                UpdateFormState(States.ReadyToScan);
             }
             if (_directory != null && txbDirectory.Text != string.Empty)
             {
@@ -101,13 +92,23 @@ namespace DuplicateRemover
         private void btnScanFolderOnly_Click(object sender, EventArgs e)
         {
             bsUniqueFiles.Clear();
+            bsPhysicalFiles.Clear();
+
+            UpdateFormState(States.Scanning);
+
+            if (!bwScan.IsBusy)
+            {
+                bwScan.RunWorkerAsync();
+            }
+
+            UpdateFormState(States.ReadyToClean);
         }
         #endregion
 
         #region Private Methods
         private void UpdateFormState(States state)
         {
-            switch(state)
+            switch (state)
             {
                 case States.NoFolderChosen:
                     btnChooseDirectory.Enabled = true;
@@ -140,6 +141,71 @@ namespace DuplicateRemover
                     btnShowFilePaths.Enabled = false;
                     break;
             }
+        }
+
+        private void LoadTestingData()
+        {
+            _uniqueFiles.Add(new UniqueFile() { Hash = "Hash1", Paths = new List<string>() { "Path1", "Path2" } });
+            _uniqueFiles.Add(new UniqueFile() { Hash = "Hash2", Paths = new List<string>() { "Path3" } });
+            _uniqueFiles.Add(new UniqueFile() { Hash = "Hash3", Paths = new List<string>() { "Path4" } });
+
+            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash1", Path = "Path1" });
+            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash1", Path = "Path2" });
+            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash2", Path = "Path3" });
+            _physicalFiles.Add(new PhysicalFile() { Hash = "Hash3", Path = "Path4" });
+        }
+
+        public void AppendTextToLogger(string text, Color? color = null, FontStyle? fontStyle = null, float? fontSize = null)
+        {
+            if (rtbLogger.InvokeRequired)
+            {
+                rtbLogger.Invoke(new Action<string, Color?, FontStyle?, float?>(AppendTextToLogger), text, color, fontStyle, fontSize);
+            }
+            else
+            {
+                // Set the default color if none is provided
+                Color textColor = color ?? rtbLogger.ForeColor;
+
+                // Create a new font based on the provided parameters
+                Font currentFont = rtbLogger.Font;
+                FontStyle style = fontStyle ?? currentFont.Style;
+                float size = fontSize ?? currentFont.Size;
+                Font newFont = new Font(currentFont.FontFamily, size, style);
+
+                // Save the current selection start and length
+                int selectionStart = rtbLogger.TextLength;
+                int selectionLength = text.Length;
+
+                // Append the text
+                rtbLogger.AppendText(text + Environment.NewLine);
+
+                // Apply the color and font to the appended text
+                rtbLogger.Select(selectionStart, selectionLength);
+                rtbLogger.SelectionColor = textColor;
+                rtbLogger.SelectionFont = newFont;
+
+                // Deselect the text
+                rtbLogger.SelectionLength = 0;
+
+                // Scroll to the caret
+                rtbLogger.ScrollToCaret();
+            }
+        }
+        #endregion
+
+        #region Background Workers
+        private void bwScan_DoWork(object sender, DoWorkEventArgs e)
+        {
+            AppendTextToLogger("Scanning folder...", null, FontStyle.Bold);
+            //ScanFolder();
+        }
+        private void bwScan_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+        private void bwScan_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            UpdateFormState(States.ReadyToClean);
         }
         #endregion
     }

@@ -64,6 +64,7 @@
             lblTotalFiles = new Label();
             btnScan = new Button();
             bsIncludeSubfolders = new BindingSource(components);
+            bwScan = new System.ComponentModel.BackgroundWorker();
             gbExecution = new GroupBox();
             gbExecution.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -261,7 +262,7 @@
             dgPhysicalFiles.Location = new Point(6, 21);
             dgPhysicalFiles.Name = "dgPhysicalFiles";
             dgPhysicalFiles.RowHeadersWidth = 82;
-            dgPhysicalFiles.Size = new Size(510, 274);
+            dgPhysicalFiles.Size = new Size(536, 274);
             dgPhysicalFiles.TabIndex = 9;
             // 
             // pathDataGridViewTextBoxColumn
@@ -429,6 +430,14 @@
             btnScan.UseVisualStyleBackColor = true;
             btnScan.Click += btnScanFolderOnly_Click;
             // 
+            // bwScan
+            // 
+            bwScan.WorkerReportsProgress = true;
+            bwScan.WorkerSupportsCancellation = true;
+            bwScan.DoWork += bwScan_DoWork;
+            bwScan.ProgressChanged += bwScan_ProgressChanged;
+            bwScan.RunWorkerCompleted += bwScan_RunWorkerCompleted;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -490,5 +499,6 @@
         private DataGridViewButtonColumn Navigate;
         private CheckBox cbIncludeSubfolders;
         private BindingSource bsIncludeSubfolders;
+        private System.ComponentModel.BackgroundWorker bwScan;
     }
 }
