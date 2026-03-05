@@ -96,10 +96,10 @@
             tableLayoutPanel1.SetColumnSpan(gbExecution, 2);
             gbExecution.Controls.Add(tlpExecution);
             gbExecution.Dock = DockStyle.Fill;
-            gbExecution.Location = new Point(7, 879);
+            gbExecution.Location = new Point(7, 719);
             gbExecution.Name = "gbExecution";
             gbExecution.Padding = new Padding(4);
-            gbExecution.Size = new Size(1866, 154);
+            gbExecution.Size = new Size(1866, 314);
             gbExecution.TabIndex = 3;
             gbExecution.TabStop = false;
             gbExecution.Text = "Execution";
@@ -118,7 +118,7 @@
             tlpExecution.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tlpExecution.Size = new Size(1858, 130);
+            tlpExecution.Size = new Size(1858, 290);
             tlpExecution.TabIndex = 0;
             // 
             // rtbLogger
@@ -126,14 +126,14 @@
             rtbLogger.Dock = DockStyle.Fill;
             rtbLogger.Location = new Point(3, 3);
             rtbLogger.Name = "rtbLogger";
-            rtbLogger.Size = new Size(1852, 68);
+            rtbLogger.Size = new Size(1852, 228);
             rtbLogger.TabIndex = 0;
             rtbLogger.Text = "";
             // 
             // progressBar1
             // 
             progressBar1.Dock = DockStyle.Fill;
-            progressBar1.Location = new Point(3, 77);
+            progressBar1.Location = new Point(3, 237);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(1852, 22);
             progressBar1.TabIndex = 1;
@@ -141,7 +141,7 @@
             // btnCancel
             // 
             btnCancel.Dock = DockStyle.Fill;
-            btnCancel.Location = new Point(3, 105);
+            btnCancel.Location = new Point(3, 265);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(1852, 22);
             btnCancel.TabIndex = 2;
@@ -164,7 +164,7 @@
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 160F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 320F));
             tableLayoutPanel1.Size = new Size(1880, 1040);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -351,7 +351,7 @@
             gbUniqueFiles.Location = new Point(7, 127);
             gbUniqueFiles.Name = "gbUniqueFiles";
             gbUniqueFiles.Padding = new Padding(4);
-            gbUniqueFiles.Size = new Size(930, 746);
+            gbUniqueFiles.Size = new Size(930, 586);
             gbUniqueFiles.TabIndex = 1;
             gbUniqueFiles.TabStop = false;
             gbUniqueFiles.Text = "Unique Items";
@@ -368,7 +368,7 @@
             tlpUniqueFiles.RowCount = 2;
             tlpUniqueFiles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpUniqueFiles.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
-            tlpUniqueFiles.Size = new Size(922, 722);
+            tlpUniqueFiles.Size = new Size(922, 562);
             tlpUniqueFiles.TabIndex = 0;
             // 
             // dgUniqueFiles
@@ -385,7 +385,7 @@
             dgUniqueFiles.Name = "dgUniqueFiles";
             dgUniqueFiles.ReadOnly = true;
             dgUniqueFiles.RowHeadersWidth = 40;
-            dgUniqueFiles.Size = new Size(916, 682);
+            dgUniqueFiles.Size = new Size(916, 522);
             dgUniqueFiles.TabIndex = 0;
             // 
             // hashDataGridViewTextBoxColumn
@@ -425,7 +425,7 @@
             tlpUniqueButtons.Controls.Add(btnShowFilePaths, 3, 0);
             tlpUniqueButtons.Controls.Add(btnAutoClean, 4, 0);
             tlpUniqueButtons.Dock = DockStyle.Fill;
-            tlpUniqueButtons.Location = new Point(3, 691);
+            tlpUniqueButtons.Location = new Point(3, 531);
             tlpUniqueButtons.Name = "tlpUniqueButtons";
             tlpUniqueButtons.RowCount = 1;
             tlpUniqueButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -490,7 +490,7 @@
             gbPhysicalFiles.Location = new Point(943, 127);
             gbPhysicalFiles.Name = "gbPhysicalFiles";
             gbPhysicalFiles.Padding = new Padding(4);
-            gbPhysicalFiles.Size = new Size(930, 746);
+            gbPhysicalFiles.Size = new Size(930, 586);
             gbPhysicalFiles.TabIndex = 2;
             gbPhysicalFiles.TabStop = false;
             gbPhysicalFiles.Text = "Physical Files";
@@ -507,7 +507,7 @@
             tlpPhysicalFiles.RowCount = 2;
             tlpPhysicalFiles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpPhysicalFiles.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
-            tlpPhysicalFiles.Size = new Size(922, 722);
+            tlpPhysicalFiles.Size = new Size(922, 562);
             tlpPhysicalFiles.TabIndex = 0;
             // 
             // dgPhysicalFiles
@@ -523,7 +523,7 @@
             dgPhysicalFiles.Location = new Point(3, 3);
             dgPhysicalFiles.Name = "dgPhysicalFiles";
             dgPhysicalFiles.RowHeadersWidth = 40;
-            dgPhysicalFiles.Size = new Size(916, 682);
+            dgPhysicalFiles.Size = new Size(916, 522);
             dgPhysicalFiles.TabIndex = 0;
             // 
             // pathDataGridViewTextBoxColumn
@@ -568,7 +568,7 @@
             tlpPhysicalButtons.Controls.Add(btnDeleteSelected, 1, 0);
             tlpPhysicalButtons.Controls.Add(btnKeepSelected, 2, 0);
             tlpPhysicalButtons.Dock = DockStyle.Fill;
-            tlpPhysicalButtons.Location = new Point(3, 691);
+            tlpPhysicalButtons.Location = new Point(3, 531);
             tlpPhysicalButtons.Name = "tlpPhysicalButtons";
             tlpPhysicalButtons.RowCount = 1;
             tlpPhysicalButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
