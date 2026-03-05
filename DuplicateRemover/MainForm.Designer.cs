@@ -209,19 +209,20 @@
             tlpDirectoryTop.Location = new Point(3, 3);
             tlpDirectoryTop.Name = "tlpDirectoryTop";
             tlpDirectoryTop.RowCount = 1;
-            tlpDirectoryTop.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpDirectoryTop.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tlpDirectoryTop.Size = new Size(1852, 39);
             tlpDirectoryTop.TabIndex = 0;
             // 
             // lblDirectoryLabel
             // 
-            lblDirectoryLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblDirectoryLabel.Anchor = AnchorStyles.None;
             lblDirectoryLabel.AutoSize = true;
-            lblDirectoryLabel.Location = new Point(3, 0);
+            lblDirectoryLabel.Location = new Point(3, 12);
             lblDirectoryLabel.Name = "lblDirectoryLabel";
-            lblDirectoryLabel.Size = new Size(58, 39);
+            lblDirectoryLabel.Size = new Size(58, 15);
             lblDirectoryLabel.TabIndex = 0;
             lblDirectoryLabel.Text = "Directory:";
+            lblDirectoryLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txbDirectory
             // 
@@ -229,16 +230,18 @@
             txbDirectory.Location = new Point(67, 3);
             txbDirectory.Name = "txbDirectory";
             txbDirectory.ReadOnly = true;
-            txbDirectory.Size = new Size(1701, 23);
+            txbDirectory.Size = new Size(1646, 23);
             txbDirectory.TabIndex = 1;
             txbDirectory.TextChanged += txbDirectory_TextChanged;
             // 
             // btnChooseDirectory
             // 
+            btnChooseDirectory.AutoSize = true;
             btnChooseDirectory.Dock = DockStyle.Fill;
-            btnChooseDirectory.Location = new Point(1774, 3);
+            btnChooseDirectory.Location = new Point(1719, 3);
+            btnChooseDirectory.MinimumSize = new Size(130, 0);
             btnChooseDirectory.Name = "btnChooseDirectory";
-            btnChooseDirectory.Size = new Size(75, 33);
+            btnChooseDirectory.Size = new Size(130, 33);
             btnChooseDirectory.TabIndex = 2;
             btnChooseDirectory.Text = "Choose Directory";
             btnChooseDirectory.UseVisualStyleBackColor = true;
