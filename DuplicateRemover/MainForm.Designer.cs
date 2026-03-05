@@ -10,7 +10,6 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,132 +21,352 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
             GroupBox gbExecution;
-            btnCancel = new Button();
-            progressBar1 = new ProgressBar();
+            tlpExecution = new TableLayoutPanel();
             rtbLogger = new RichTextBox();
+            progressBar1 = new ProgressBar();
+            btnCancel = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            gbDirectory = new GroupBox();
+            tlpDirectory = new TableLayoutPanel();
+            tlpDirectoryTop = new TableLayoutPanel();
+            lblDirectoryLabel = new Label();
+            txbDirectory = new TextBox();
+            btnChooseDirectory = new Button();
+            tlpDirectoryStats = new TableLayoutPanel();
+            btnScan = new Button();
+            cbIncludeSubfolders = new CheckBox();
+            tlpStatsStack = new TableLayoutPanel();
+            lblTotalFiles = new Label();
+            lblTotalFilesNumber = new Label();
+            lblUniqueFiles = new Label();
+            lblUniqueFilesNumber = new Label();
             gbUniqueFiles = new GroupBox();
+            tlpUniqueFiles = new TableLayoutPanel();
             dgUniqueFiles = new DataGridView();
             hashDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Action = new DataGridViewButtonColumn();
             bsUniqueFiles = new BindingSource(components);
+            tlpUniqueButtons = new TableLayoutPanel();
             btnShowSinlges = new Button();
             btnShowDuplicates = new Button();
             btnShowAll = new Button();
-            btnAutoClean = new Button();
             btnShowFilePaths = new Button();
+            btnAutoClean = new Button();
             gbPhysicalFiles = new GroupBox();
+            tlpPhysicalFiles = new TableLayoutPanel();
             dgPhysicalFiles = new DataGridView();
             pathDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Selected = new DataGridViewCheckBoxColumn();
             Navigate = new DataGridViewButtonColumn();
             bsPhysicalFiles = new BindingSource(components);
-            btnKeepSelected = new Button();
-            btnDeleteSelected = new Button();
+            tlpPhysicalButtons = new TableLayoutPanel();
             btnKeepFirst = new Button();
-            gbDirectory = new GroupBox();
-            cbIncludeSubfolders = new CheckBox();
-            lblUniqueFilesNumber = new Label();
-            txbDirectory = new TextBox();
-            lblUniqueFiles = new Label();
-            lblDirectoryLabel = new Label();
-            lblTotalFilesNumber = new Label();
-            btnChooseDirectory = new Button();
-            lblTotalFiles = new Label();
-            btnScan = new Button();
+            btnDeleteSelected = new Button();
+            btnKeepSelected = new Button();
             bsIncludeSubfolders = new BindingSource(components);
             bwScan = new System.ComponentModel.BackgroundWorker();
             gbExecution = new GroupBox();
             gbExecution.SuspendLayout();
+            tlpExecution.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            gbDirectory.SuspendLayout();
+            tlpDirectory.SuspendLayout();
+            tlpDirectoryTop.SuspendLayout();
+            tlpDirectoryStats.SuspendLayout();
+            tlpStatsStack.SuspendLayout();
             gbUniqueFiles.SuspendLayout();
+            tlpUniqueFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgUniqueFiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUniqueFiles).BeginInit();
+            tlpUniqueButtons.SuspendLayout();
             gbPhysicalFiles.SuspendLayout();
+            tlpPhysicalFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).BeginInit();
-            gbDirectory.SuspendLayout();
+            tlpPhysicalButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).BeginInit();
             SuspendLayout();
             // 
             // gbExecution
             // 
             tableLayoutPanel1.SetColumnSpan(gbExecution, 2);
-            gbExecution.Controls.Add(btnCancel);
-            gbExecution.Controls.Add(progressBar1);
-            gbExecution.Controls.Add(rtbLogger);
-            gbExecution.Location = new Point(3, 444);
+            gbExecution.Controls.Add(tlpExecution);
+            gbExecution.Dock = DockStyle.Fill;
+            gbExecution.Location = new Point(7, 879);
             gbExecution.Name = "gbExecution";
-            gbExecution.Size = new Size(1087, 299);
-            gbExecution.TabIndex = 4;
+            gbExecution.Padding = new Padding(4);
+            gbExecution.Size = new Size(1866, 154);
+            gbExecution.TabIndex = 3;
             gbExecution.TabStop = false;
             gbExecution.Text = "Execution";
             // 
+            // tlpExecution
+            // 
+            tlpExecution.ColumnCount = 1;
+            tlpExecution.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpExecution.Controls.Add(rtbLogger, 0, 0);
+            tlpExecution.Controls.Add(progressBar1, 0, 1);
+            tlpExecution.Controls.Add(btnCancel, 0, 2);
+            tlpExecution.Dock = DockStyle.Fill;
+            tlpExecution.Location = new Point(4, 20);
+            tlpExecution.Name = "tlpExecution";
+            tlpExecution.RowCount = 3;
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tlpExecution.Size = new Size(1858, 130);
+            tlpExecution.TabIndex = 0;
+            // 
+            // rtbLogger
+            // 
+            rtbLogger.Dock = DockStyle.Fill;
+            rtbLogger.Location = new Point(3, 3);
+            rtbLogger.Name = "rtbLogger";
+            rtbLogger.Size = new Size(1852, 68);
+            rtbLogger.TabIndex = 0;
+            rtbLogger.Text = "";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Dock = DockStyle.Fill;
+            progressBar1.Location = new Point(3, 77);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(1852, 22);
+            progressBar1.TabIndex = 1;
+            // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(3, 261);
+            btnCancel.Dock = DockStyle.Fill;
+            btnCancel.Location = new Point(3, 105);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(1078, 23);
+            btnCancel.Size = new Size(1852, 22);
             btnCancel.TabIndex = 2;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
-            // 
-            progressBar1.Location = new Point(3, 232);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(1078, 23);
-            progressBar1.TabIndex = 1;
-            // 
-            // rtbLogger
-            // 
-            rtbLogger.Location = new Point(0, 22);
-            rtbLogger.Name = "rtbLogger";
-            rtbLogger.Size = new Size(1081, 204);
-            rtbLogger.TabIndex = 0;
-            rtbLogger.Text = "";
-            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.3767967F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.6232033F));
-            tableLayoutPanel1.Controls.Add(gbUniqueFiles, 0, 1);
-            tableLayoutPanel1.Controls.Add(gbExecution, 0, 2);
-            tableLayoutPanel1.Controls.Add(gbPhysicalFiles, 1, 1);
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(gbDirectory, 0, 0);
-            tableLayoutPanel1.Location = new Point(12, 12);
+            tableLayoutPanel1.Controls.Add(gbUniqueFiles, 0, 1);
+            tableLayoutPanel1.Controls.Add(gbPhysicalFiles, 1, 1);
+            tableLayoutPanel1.Controls.Add(gbExecution, 0, 2);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(4);
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 24.0362816F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 75.96372F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 304F));
-            tableLayoutPanel1.Size = new Size(1093, 746);
-            tableLayoutPanel1.TabIndex = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 160F));
+            tableLayoutPanel1.Size = new Size(1880, 1040);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // gbDirectory
+            // 
+            tableLayoutPanel1.SetColumnSpan(gbDirectory, 2);
+            gbDirectory.Controls.Add(tlpDirectory);
+            gbDirectory.Dock = DockStyle.Fill;
+            gbDirectory.Location = new Point(7, 7);
+            gbDirectory.Name = "gbDirectory";
+            gbDirectory.Padding = new Padding(4);
+            gbDirectory.Size = new Size(1866, 114);
+            gbDirectory.TabIndex = 0;
+            gbDirectory.TabStop = false;
+            gbDirectory.Text = "Directory";
+            // 
+            // tlpDirectory
+            // 
+            tlpDirectory.ColumnCount = 1;
+            tlpDirectory.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpDirectory.Controls.Add(tlpDirectoryTop, 0, 0);
+            tlpDirectory.Controls.Add(tlpDirectoryStats, 0, 1);
+            tlpDirectory.Dock = DockStyle.Fill;
+            tlpDirectory.Location = new Point(4, 20);
+            tlpDirectory.Name = "tlpDirectory";
+            tlpDirectory.RowCount = 2;
+            tlpDirectory.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpDirectory.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpDirectory.Size = new Size(1858, 90);
+            tlpDirectory.TabIndex = 0;
+            // 
+            // tlpDirectoryTop
+            // 
+            tlpDirectoryTop.ColumnCount = 3;
+            tlpDirectoryTop.ColumnStyles.Add(new ColumnStyle());
+            tlpDirectoryTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpDirectoryTop.ColumnStyles.Add(new ColumnStyle());
+            tlpDirectoryTop.Controls.Add(lblDirectoryLabel, 0, 0);
+            tlpDirectoryTop.Controls.Add(txbDirectory, 1, 0);
+            tlpDirectoryTop.Controls.Add(btnChooseDirectory, 2, 0);
+            tlpDirectoryTop.Dock = DockStyle.Fill;
+            tlpDirectoryTop.Location = new Point(3, 3);
+            tlpDirectoryTop.Name = "tlpDirectoryTop";
+            tlpDirectoryTop.RowCount = 1;
+            tlpDirectoryTop.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpDirectoryTop.Size = new Size(1852, 39);
+            tlpDirectoryTop.TabIndex = 0;
+            // 
+            // lblDirectoryLabel
+            // 
+            lblDirectoryLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblDirectoryLabel.AutoSize = true;
+            lblDirectoryLabel.Location = new Point(3, 0);
+            lblDirectoryLabel.Name = "lblDirectoryLabel";
+            lblDirectoryLabel.Size = new Size(58, 39);
+            lblDirectoryLabel.TabIndex = 0;
+            lblDirectoryLabel.Text = "Directory:";
+            // 
+            // txbDirectory
+            // 
+            txbDirectory.Dock = DockStyle.Fill;
+            txbDirectory.Location = new Point(67, 3);
+            txbDirectory.Name = "txbDirectory";
+            txbDirectory.ReadOnly = true;
+            txbDirectory.Size = new Size(1701, 23);
+            txbDirectory.TabIndex = 1;
+            txbDirectory.TextChanged += txbDirectory_TextChanged;
+            // 
+            // btnChooseDirectory
+            // 
+            btnChooseDirectory.Dock = DockStyle.Fill;
+            btnChooseDirectory.Location = new Point(1774, 3);
+            btnChooseDirectory.Name = "btnChooseDirectory";
+            btnChooseDirectory.Size = new Size(75, 33);
+            btnChooseDirectory.TabIndex = 2;
+            btnChooseDirectory.Text = "Choose Directory";
+            btnChooseDirectory.UseVisualStyleBackColor = true;
+            btnChooseDirectory.Click += btnChooseDirectory_Click;
+            // 
+            // tlpDirectoryStats
+            // 
+            tlpDirectoryStats.ColumnCount = 3;
+            tlpDirectoryStats.ColumnStyles.Add(new ColumnStyle());
+            tlpDirectoryStats.ColumnStyles.Add(new ColumnStyle());
+            tlpDirectoryStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpDirectoryStats.Controls.Add(btnScan, 0, 0);
+            tlpDirectoryStats.Controls.Add(cbIncludeSubfolders, 1, 0);
+            tlpDirectoryStats.Controls.Add(tlpStatsStack, 2, 0);
+            tlpDirectoryStats.Dock = DockStyle.Fill;
+            tlpDirectoryStats.Location = new Point(3, 48);
+            tlpDirectoryStats.Name = "tlpDirectoryStats";
+            tlpDirectoryStats.RowCount = 1;
+            tlpDirectoryStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpDirectoryStats.Size = new Size(1852, 39);
+            tlpDirectoryStats.TabIndex = 1;
+            // 
+            // btnScan
+            // 
+            btnScan.Dock = DockStyle.Fill;
+            btnScan.Location = new Point(3, 3);
+            btnScan.Name = "btnScan";
+            btnScan.Size = new Size(75, 33);
+            btnScan.TabIndex = 3;
+            btnScan.Text = "Scan";
+            btnScan.UseVisualStyleBackColor = true;
+            btnScan.Click += btnScanFolderOnly_Click;
+            // 
+            // cbIncludeSubfolders
+            // 
+            cbIncludeSubfolders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            cbIncludeSubfolders.AutoSize = true;
+            cbIncludeSubfolders.Location = new Point(84, 3);
+            cbIncludeSubfolders.Name = "cbIncludeSubfolders";
+            cbIncludeSubfolders.Size = new Size(124, 33);
+            cbIncludeSubfolders.TabIndex = 4;
+            cbIncludeSubfolders.Text = "Include Subfolders";
+            cbIncludeSubfolders.UseVisualStyleBackColor = true;
+            // 
+            // tlpStatsStack
+            // 
+            tlpStatsStack.ColumnCount = 2;
+            tlpStatsStack.ColumnStyles.Add(new ColumnStyle());
+            tlpStatsStack.ColumnStyles.Add(new ColumnStyle());
+            tlpStatsStack.Controls.Add(lblTotalFiles, 0, 0);
+            tlpStatsStack.Controls.Add(lblTotalFilesNumber, 1, 0);
+            tlpStatsStack.Controls.Add(lblUniqueFiles, 0, 1);
+            tlpStatsStack.Controls.Add(lblUniqueFilesNumber, 1, 1);
+            tlpStatsStack.Dock = DockStyle.Fill;
+            tlpStatsStack.Location = new Point(214, 3);
+            tlpStatsStack.Name = "tlpStatsStack";
+            tlpStatsStack.RowCount = 2;
+            tlpStatsStack.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpStatsStack.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpStatsStack.Size = new Size(1635, 33);
+            tlpStatsStack.TabIndex = 5;
+            // 
+            // lblTotalFiles
+            // 
+            lblTotalFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTotalFiles.AutoSize = true;
+            lblTotalFiles.Location = new Point(3, 0);
+            lblTotalFiles.Name = "lblTotalFiles";
+            lblTotalFiles.Size = new Size(62, 16);
+            lblTotalFiles.TabIndex = 5;
+            lblTotalFiles.Text = "Total Files:";
+            // 
+            // lblTotalFilesNumber
+            // 
+            lblTotalFilesNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTotalFilesNumber.AutoSize = true;
+            lblTotalFilesNumber.Location = new Point(83, 0);
+            lblTotalFilesNumber.Name = "lblTotalFilesNumber";
+            lblTotalFilesNumber.Size = new Size(36, 16);
+            lblTotalFilesNumber.TabIndex = 6;
+            lblTotalFilesNumber.Text = "NULL";
+            // 
+            // lblUniqueFiles
+            // 
+            lblUniqueFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblUniqueFiles.AutoSize = true;
+            lblUniqueFiles.Location = new Point(3, 16);
+            lblUniqueFiles.Name = "lblUniqueFiles";
+            lblUniqueFiles.Size = new Size(74, 17);
+            lblUniqueFiles.TabIndex = 7;
+            lblUniqueFiles.Text = "Unique Files:";
+            // 
+            // lblUniqueFilesNumber
+            // 
+            lblUniqueFilesNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblUniqueFilesNumber.AutoSize = true;
+            lblUniqueFilesNumber.Location = new Point(83, 16);
+            lblUniqueFilesNumber.Name = "lblUniqueFilesNumber";
+            lblUniqueFilesNumber.Size = new Size(36, 17);
+            lblUniqueFilesNumber.TabIndex = 8;
+            lblUniqueFilesNumber.Text = "NULL";
             // 
             // gbUniqueFiles
             // 
-            gbUniqueFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gbUniqueFiles.Controls.Add(dgUniqueFiles);
-            gbUniqueFiles.Controls.Add(btnShowSinlges);
-            gbUniqueFiles.Controls.Add(btnShowDuplicates);
-            gbUniqueFiles.Controls.Add(btnShowAll);
-            gbUniqueFiles.Controls.Add(btnAutoClean);
-            gbUniqueFiles.Controls.Add(btnShowFilePaths);
-            gbUniqueFiles.Location = new Point(3, 109);
+            gbUniqueFiles.Controls.Add(tlpUniqueFiles);
+            gbUniqueFiles.Dock = DockStyle.Fill;
+            gbUniqueFiles.Location = new Point(7, 127);
             gbUniqueFiles.Name = "gbUniqueFiles";
-            gbUniqueFiles.Size = new Size(533, 329);
-            gbUniqueFiles.TabIndex = 2;
+            gbUniqueFiles.Padding = new Padding(4);
+            gbUniqueFiles.Size = new Size(930, 746);
+            gbUniqueFiles.TabIndex = 1;
             gbUniqueFiles.TabStop = false;
             gbUniqueFiles.Text = "Unique Items";
+            // 
+            // tlpUniqueFiles
+            // 
+            tlpUniqueFiles.ColumnCount = 1;
+            tlpUniqueFiles.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpUniqueFiles.Controls.Add(dgUniqueFiles, 0, 0);
+            tlpUniqueFiles.Controls.Add(tlpUniqueButtons, 0, 1);
+            tlpUniqueFiles.Dock = DockStyle.Fill;
+            tlpUniqueFiles.Location = new Point(4, 20);
+            tlpUniqueFiles.Name = "tlpUniqueFiles";
+            tlpUniqueFiles.RowCount = 2;
+            tlpUniqueFiles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpUniqueFiles.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
+            tlpUniqueFiles.Size = new Size(922, 722);
+            tlpUniqueFiles.TabIndex = 0;
             // 
             // dgUniqueFiles
             // 
@@ -158,29 +377,28 @@
             dgUniqueFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgUniqueFiles.Columns.AddRange(new DataGridViewColumn[] { hashDataGridViewTextBoxColumn, Action });
             dgUniqueFiles.DataSource = bsUniqueFiles;
-            dgUniqueFiles.Location = new Point(6, 22);
+            dgUniqueFiles.Dock = DockStyle.Fill;
+            dgUniqueFiles.Location = new Point(3, 3);
             dgUniqueFiles.Name = "dgUniqueFiles";
             dgUniqueFiles.ReadOnly = true;
-            dgUniqueFiles.RowHeadersWidth = 82;
-            dgUniqueFiles.Size = new Size(521, 274);
-            dgUniqueFiles.TabIndex = 8;
+            dgUniqueFiles.RowHeadersWidth = 40;
+            dgUniqueFiles.Size = new Size(916, 682);
+            dgUniqueFiles.TabIndex = 0;
             // 
             // hashDataGridViewTextBoxColumn
             // 
-            hashDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             hashDataGridViewTextBoxColumn.DataPropertyName = "Hash";
-            hashDataGridViewTextBoxColumn.FillWeight = 71.79487F;
+            hashDataGridViewTextBoxColumn.FillWeight = 65F;
             hashDataGridViewTextBoxColumn.HeaderText = "Hash";
-            hashDataGridViewTextBoxColumn.MinimumWidth = 200;
+            hashDataGridViewTextBoxColumn.MinimumWidth = 80;
             hashDataGridViewTextBoxColumn.Name = "hashDataGridViewTextBoxColumn";
             hashDataGridViewTextBoxColumn.ReadOnly = true;
-            hashDataGridViewTextBoxColumn.Width = 300;
             // 
             // Action
             // 
-            Action.FillWeight = 128.205139F;
+            Action.FillWeight = 35F;
             Action.HeaderText = "Action";
-            Action.MinimumWidth = 100;
+            Action.MinimumWidth = 70;
             Action.Name = "Action";
             Action.ReadOnly = true;
             Action.Text = "Show Folders";
@@ -190,65 +408,104 @@
             // 
             bsUniqueFiles.DataSource = typeof(Objects.UniqueFile);
             // 
+            // tlpUniqueButtons
+            // 
+            tlpUniqueButtons.ColumnCount = 5;
+            tlpUniqueButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlpUniqueButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlpUniqueButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlpUniqueButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlpUniqueButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlpUniqueButtons.Controls.Add(btnShowSinlges, 0, 0);
+            tlpUniqueButtons.Controls.Add(btnShowDuplicates, 1, 0);
+            tlpUniqueButtons.Controls.Add(btnShowAll, 2, 0);
+            tlpUniqueButtons.Controls.Add(btnShowFilePaths, 3, 0);
+            tlpUniqueButtons.Controls.Add(btnAutoClean, 4, 0);
+            tlpUniqueButtons.Dock = DockStyle.Fill;
+            tlpUniqueButtons.Location = new Point(3, 691);
+            tlpUniqueButtons.Name = "tlpUniqueButtons";
+            tlpUniqueButtons.RowCount = 1;
+            tlpUniqueButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpUniqueButtons.Size = new Size(916, 28);
+            tlpUniqueButtons.TabIndex = 1;
+            // 
             // btnShowSinlges
             // 
-            btnShowSinlges.Location = new Point(6, 303);
+            btnShowSinlges.Dock = DockStyle.Fill;
+            btnShowSinlges.Location = new Point(3, 3);
             btnShowSinlges.Name = "btnShowSinlges";
-            btnShowSinlges.Size = new Size(153, 23);
-            btnShowSinlges.TabIndex = 7;
-            btnShowSinlges.Text = "Show Only Sinlge Entries";
+            btnShowSinlges.Size = new Size(177, 22);
+            btnShowSinlges.TabIndex = 1;
+            btnShowSinlges.Text = "Singles";
             btnShowSinlges.UseVisualStyleBackColor = true;
             // 
             // btnShowDuplicates
             // 
-            btnShowDuplicates.Location = new Point(165, 303);
+            btnShowDuplicates.Dock = DockStyle.Fill;
+            btnShowDuplicates.Location = new Point(186, 3);
             btnShowDuplicates.Name = "btnShowDuplicates";
-            btnShowDuplicates.Size = new Size(136, 23);
-            btnShowDuplicates.TabIndex = 6;
-            btnShowDuplicates.Text = "Show Duplicates";
+            btnShowDuplicates.Size = new Size(177, 22);
+            btnShowDuplicates.TabIndex = 2;
+            btnShowDuplicates.Text = "Duplicates";
             btnShowDuplicates.UseVisualStyleBackColor = true;
             // 
             // btnShowAll
             // 
-            btnShowAll.Location = new Point(165, 153);
+            btnShowAll.Dock = DockStyle.Fill;
+            btnShowAll.Location = new Point(369, 3);
             btnShowAll.Name = "btnShowAll";
-            btnShowAll.Size = new Size(88, 23);
-            btnShowAll.TabIndex = 5;
+            btnShowAll.Size = new Size(177, 22);
+            btnShowAll.TabIndex = 3;
             btnShowAll.Text = "Show All";
             btnShowAll.UseVisualStyleBackColor = true;
             // 
-            // btnAutoClean
-            // 
-            btnAutoClean.Location = new Point(406, 302);
-            btnAutoClean.Name = "btnAutoClean";
-            btnAutoClean.Size = new Size(88, 23);
-            btnAutoClean.TabIndex = 4;
-            btnAutoClean.Text = "Auto Clean";
-            btnAutoClean.UseVisualStyleBackColor = true;
-            // 
             // btnShowFilePaths
             // 
-            btnShowFilePaths.Location = new Point(307, 303);
+            btnShowFilePaths.Dock = DockStyle.Fill;
+            btnShowFilePaths.Location = new Point(552, 3);
             btnShowFilePaths.Name = "btnShowFilePaths";
-            btnShowFilePaths.Size = new Size(93, 23);
-            btnShowFilePaths.TabIndex = 3;
-            btnShowFilePaths.Text = "Show Paths";
+            btnShowFilePaths.Size = new Size(177, 22);
+            btnShowFilePaths.TabIndex = 4;
+            btnShowFilePaths.Text = "Paths";
             btnShowFilePaths.UseVisualStyleBackColor = true;
             btnShowFilePaths.Click += btnShowFilePaths_Click;
             // 
+            // btnAutoClean
+            // 
+            btnAutoClean.Dock = DockStyle.Fill;
+            btnAutoClean.Location = new Point(735, 3);
+            btnAutoClean.Name = "btnAutoClean";
+            btnAutoClean.Size = new Size(178, 22);
+            btnAutoClean.TabIndex = 5;
+            btnAutoClean.Text = "Auto Clean";
+            btnAutoClean.UseVisualStyleBackColor = true;
+            // 
             // gbPhysicalFiles
             // 
-            gbPhysicalFiles.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gbPhysicalFiles.Controls.Add(dgPhysicalFiles);
-            gbPhysicalFiles.Controls.Add(btnKeepSelected);
-            gbPhysicalFiles.Controls.Add(btnDeleteSelected);
-            gbPhysicalFiles.Controls.Add(btnKeepFirst);
-            gbPhysicalFiles.Location = new Point(542, 109);
+            gbPhysicalFiles.Controls.Add(tlpPhysicalFiles);
+            gbPhysicalFiles.Dock = DockStyle.Fill;
+            gbPhysicalFiles.Location = new Point(943, 127);
             gbPhysicalFiles.Name = "gbPhysicalFiles";
-            gbPhysicalFiles.Size = new Size(548, 329);
+            gbPhysicalFiles.Padding = new Padding(4);
+            gbPhysicalFiles.Size = new Size(930, 746);
             gbPhysicalFiles.TabIndex = 2;
             gbPhysicalFiles.TabStop = false;
             gbPhysicalFiles.Text = "Physical Files";
+            // 
+            // tlpPhysicalFiles
+            // 
+            tlpPhysicalFiles.ColumnCount = 1;
+            tlpPhysicalFiles.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpPhysicalFiles.Controls.Add(dgPhysicalFiles, 0, 0);
+            tlpPhysicalFiles.Controls.Add(tlpPhysicalButtons, 0, 1);
+            tlpPhysicalFiles.Dock = DockStyle.Fill;
+            tlpPhysicalFiles.Location = new Point(4, 20);
+            tlpPhysicalFiles.Name = "tlpPhysicalFiles";
+            tlpPhysicalFiles.RowCount = 2;
+            tlpPhysicalFiles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpPhysicalFiles.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
+            tlpPhysicalFiles.Size = new Size(922, 722);
+            tlpPhysicalFiles.TabIndex = 0;
             // 
             // dgPhysicalFiles
             // 
@@ -259,37 +516,36 @@
             dgPhysicalFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgPhysicalFiles.Columns.AddRange(new DataGridViewColumn[] { pathDataGridViewTextBoxColumn, Selected, Navigate });
             dgPhysicalFiles.DataSource = bsPhysicalFiles;
-            dgPhysicalFiles.Location = new Point(6, 21);
+            dgPhysicalFiles.Dock = DockStyle.Fill;
+            dgPhysicalFiles.Location = new Point(3, 3);
             dgPhysicalFiles.Name = "dgPhysicalFiles";
-            dgPhysicalFiles.RowHeadersWidth = 82;
-            dgPhysicalFiles.Size = new Size(536, 274);
-            dgPhysicalFiles.TabIndex = 9;
+            dgPhysicalFiles.RowHeadersWidth = 40;
+            dgPhysicalFiles.Size = new Size(916, 682);
+            dgPhysicalFiles.TabIndex = 0;
             // 
             // pathDataGridViewTextBoxColumn
             // 
-            pathDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             pathDataGridViewTextBoxColumn.DataPropertyName = "Path";
-            pathDataGridViewTextBoxColumn.FillWeight = 38.4615364F;
+            pathDataGridViewTextBoxColumn.FillWeight = 65F;
             pathDataGridViewTextBoxColumn.HeaderText = "Path";
-            pathDataGridViewTextBoxColumn.MinimumWidth = 250;
+            pathDataGridViewTextBoxColumn.MinimumWidth = 80;
             pathDataGridViewTextBoxColumn.Name = "pathDataGridViewTextBoxColumn";
             pathDataGridViewTextBoxColumn.ReadOnly = true;
-            pathDataGridViewTextBoxColumn.Width = 250;
             // 
             // Selected
             // 
             Selected.DataPropertyName = "Selected";
-            Selected.FillWeight = 38.4615364F;
-            Selected.HeaderText = "Selected";
-            Selected.MinimumWidth = 80;
+            Selected.FillWeight = 10F;
+            Selected.HeaderText = "Sel";
+            Selected.MinimumWidth = 30;
             Selected.Name = "Selected";
             // 
             // Navigate
             // 
             Navigate.DataPropertyName = "Path";
-            Navigate.FillWeight = 407.692322F;
+            Navigate.FillWeight = 25F;
             Navigate.HeaderText = "Navigate";
-            Navigate.MinimumWidth = 100;
+            Navigate.MinimumWidth = 70;
             Navigate.Name = "Navigate";
             Navigate.ReadOnly = true;
             Navigate.Text = "Show in Folder";
@@ -299,136 +555,52 @@
             // 
             bsPhysicalFiles.DataSource = typeof(Objects.PhysicalFile);
             // 
-            // btnKeepSelected
+            // tlpPhysicalButtons
             // 
-            btnKeepSelected.Location = new Point(401, 301);
-            btnKeepSelected.Name = "btnKeepSelected";
-            btnKeepSelected.Size = new Size(113, 25);
-            btnKeepSelected.TabIndex = 7;
-            btnKeepSelected.Text = "Keep Selected";
-            btnKeepSelected.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteSelected
-            // 
-            btnDeleteSelected.Location = new Point(198, 302);
-            btnDeleteSelected.Name = "btnDeleteSelected";
-            btnDeleteSelected.Size = new Size(113, 25);
-            btnDeleteSelected.TabIndex = 6;
-            btnDeleteSelected.Text = "Delete Selected";
-            btnDeleteSelected.UseVisualStyleBackColor = true;
+            tlpPhysicalButtons.ColumnCount = 3;
+            tlpPhysicalButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33F));
+            tlpPhysicalButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33F));
+            tlpPhysicalButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.34F));
+            tlpPhysicalButtons.Controls.Add(btnKeepFirst, 0, 0);
+            tlpPhysicalButtons.Controls.Add(btnDeleteSelected, 1, 0);
+            tlpPhysicalButtons.Controls.Add(btnKeepSelected, 2, 0);
+            tlpPhysicalButtons.Dock = DockStyle.Fill;
+            tlpPhysicalButtons.Location = new Point(3, 691);
+            tlpPhysicalButtons.Name = "tlpPhysicalButtons";
+            tlpPhysicalButtons.RowCount = 1;
+            tlpPhysicalButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpPhysicalButtons.Size = new Size(916, 28);
+            tlpPhysicalButtons.TabIndex = 1;
             // 
             // btnKeepFirst
             // 
-            btnKeepFirst.Location = new Point(6, 302);
+            btnKeepFirst.Dock = DockStyle.Fill;
+            btnKeepFirst.Location = new Point(3, 3);
             btnKeepFirst.Name = "btnKeepFirst";
-            btnKeepFirst.Size = new Size(92, 25);
-            btnKeepFirst.TabIndex = 5;
+            btnKeepFirst.Size = new Size(299, 22);
+            btnKeepFirst.TabIndex = 1;
             btnKeepFirst.Text = "Keep First";
             btnKeepFirst.UseVisualStyleBackColor = true;
             // 
-            // gbDirectory
+            // btnDeleteSelected
             // 
-            gbDirectory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.SetColumnSpan(gbDirectory, 2);
-            gbDirectory.Controls.Add(cbIncludeSubfolders);
-            gbDirectory.Controls.Add(lblUniqueFilesNumber);
-            gbDirectory.Controls.Add(txbDirectory);
-            gbDirectory.Controls.Add(lblUniqueFiles);
-            gbDirectory.Controls.Add(lblDirectoryLabel);
-            gbDirectory.Controls.Add(lblTotalFilesNumber);
-            gbDirectory.Controls.Add(btnChooseDirectory);
-            gbDirectory.Controls.Add(lblTotalFiles);
-            gbDirectory.Controls.Add(btnScan);
-            gbDirectory.Location = new Point(3, 3);
-            gbDirectory.Name = "gbDirectory";
-            gbDirectory.Size = new Size(1087, 100);
-            gbDirectory.TabIndex = 0;
-            gbDirectory.TabStop = false;
-            gbDirectory.Text = "Directory";
+            btnDeleteSelected.Dock = DockStyle.Fill;
+            btnDeleteSelected.Location = new Point(308, 3);
+            btnDeleteSelected.Name = "btnDeleteSelected";
+            btnDeleteSelected.Size = new Size(299, 22);
+            btnDeleteSelected.TabIndex = 2;
+            btnDeleteSelected.Text = "Delete Selected";
+            btnDeleteSelected.UseVisualStyleBackColor = true;
             // 
-            // cbIncludeSubfolders
+            // btnKeepSelected
             // 
-            cbIncludeSubfolders.AutoSize = true;
-            cbIncludeSubfolders.Location = new Point(106, 70);
-            cbIncludeSubfolders.Name = "cbIncludeSubfolders";
-            cbIncludeSubfolders.Size = new Size(124, 19);
-            cbIncludeSubfolders.TabIndex = 6;
-            cbIncludeSubfolders.Text = "Include Subfolders";
-            cbIncludeSubfolders.UseVisualStyleBackColor = true;
-            // 
-            // lblUniqueFilesNumber
-            // 
-            lblUniqueFilesNumber.AutoSize = true;
-            lblUniqueFilesNumber.Location = new Point(345, 71);
-            lblUniqueFilesNumber.Name = "lblUniqueFilesNumber";
-            lblUniqueFilesNumber.Size = new Size(36, 15);
-            lblUniqueFilesNumber.TabIndex = 5;
-            lblUniqueFilesNumber.Text = "NULL";
-            // 
-            // txbDirectory
-            // 
-            txbDirectory.Location = new Point(70, 16);
-            txbDirectory.Name = "txbDirectory";
-            txbDirectory.ReadOnly = true;
-            txbDirectory.Size = new Size(912, 23);
-            txbDirectory.TabIndex = 3;
-            txbDirectory.TextChanged += txbDirectory_TextChanged;
-            // 
-            // lblUniqueFiles
-            // 
-            lblUniqueFiles.AutoSize = true;
-            lblUniqueFiles.Location = new Point(245, 71);
-            lblUniqueFiles.Name = "lblUniqueFiles";
-            lblUniqueFiles.Size = new Size(74, 15);
-            lblUniqueFiles.TabIndex = 4;
-            lblUniqueFiles.Text = "Unique Files:";
-            // 
-            // lblDirectoryLabel
-            // 
-            lblDirectoryLabel.AutoSize = true;
-            lblDirectoryLabel.Location = new Point(6, 19);
-            lblDirectoryLabel.Name = "lblDirectoryLabel";
-            lblDirectoryLabel.Size = new Size(58, 15);
-            lblDirectoryLabel.TabIndex = 1;
-            lblDirectoryLabel.Text = "Directory:";
-            // 
-            // lblTotalFilesNumber
-            // 
-            lblTotalFilesNumber.AutoSize = true;
-            lblTotalFilesNumber.Location = new Point(345, 56);
-            lblTotalFilesNumber.Name = "lblTotalFilesNumber";
-            lblTotalFilesNumber.Size = new Size(36, 15);
-            lblTotalFilesNumber.TabIndex = 3;
-            lblTotalFilesNumber.Text = "NULL";
-            // 
-            // btnChooseDirectory
-            // 
-            btnChooseDirectory.Location = new Point(988, 16);
-            btnChooseDirectory.Name = "btnChooseDirectory";
-            btnChooseDirectory.Size = new Size(93, 46);
-            btnChooseDirectory.TabIndex = 0;
-            btnChooseDirectory.Text = "Choose Directory";
-            btnChooseDirectory.UseVisualStyleBackColor = true;
-            btnChooseDirectory.Click += btnChooseDirectory_Click;
-            // 
-            // lblTotalFiles
-            // 
-            lblTotalFiles.AutoSize = true;
-            lblTotalFiles.Location = new Point(245, 56);
-            lblTotalFiles.Name = "lblTotalFiles";
-            lblTotalFiles.Size = new Size(62, 15);
-            lblTotalFiles.TabIndex = 2;
-            lblTotalFiles.Text = "Total Files:";
-            // 
-            // btnScan
-            // 
-            btnScan.Location = new Point(6, 47);
-            btnScan.Name = "btnScan";
-            btnScan.Size = new Size(94, 45);
-            btnScan.TabIndex = 0;
-            btnScan.Text = "Scan";
-            btnScan.UseVisualStyleBackColor = true;
-            btnScan.Click += btnScanFolderOnly_Click;
+            btnKeepSelected.Dock = DockStyle.Fill;
+            btnKeepSelected.Location = new Point(613, 3);
+            btnKeepSelected.Name = "btnKeepSelected";
+            btnKeepSelected.Size = new Size(300, 22);
+            btnKeepSelected.TabIndex = 3;
+            btnKeepSelected.Text = "Keep Selected";
+            btnKeepSelected.UseVisualStyleBackColor = true;
             // 
             // bwScan
             // 
@@ -443,22 +615,32 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1134, 497);
+            ClientSize = new Size(1880, 1040);
             Controls.Add(tableLayoutPanel1);
-            MaximizeBox = false;
-            MinimumSize = new Size(1035, 487);
+            MinimumSize = new Size(480, 320);
             Name = "MainForm";
             Text = "Duplicate File Cleaner";
             gbExecution.ResumeLayout(false);
+            tlpExecution.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
+            gbDirectory.ResumeLayout(false);
+            tlpDirectory.ResumeLayout(false);
+            tlpDirectoryTop.ResumeLayout(false);
+            tlpDirectoryTop.PerformLayout();
+            tlpDirectoryStats.ResumeLayout(false);
+            tlpDirectoryStats.PerformLayout();
+            tlpStatsStack.ResumeLayout(false);
+            tlpStatsStack.PerformLayout();
             gbUniqueFiles.ResumeLayout(false);
+            tlpUniqueFiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgUniqueFiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsUniqueFiles).EndInit();
+            tlpUniqueButtons.ResumeLayout(false);
             gbPhysicalFiles.ResumeLayout(false);
+            tlpPhysicalFiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).EndInit();
-            gbDirectory.ResumeLayout(false);
-            gbDirectory.PerformLayout();
+            tlpPhysicalButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).EndInit();
             ResumeLayout(false);
         }
@@ -466,38 +648,57 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
+
+        // Directory
         private GroupBox gbDirectory;
-        private TextBox txbDirectory;
+        private TableLayoutPanel tlpDirectory;
+        private TableLayoutPanel tlpDirectoryTop;
+        private TableLayoutPanel tlpDirectoryStats;
         private Label lblDirectoryLabel;
+        private TextBox txbDirectory;
         private Button btnChooseDirectory;
-        private Label lblUniqueFilesNumber;
-        private Label lblUniqueFiles;
-        private Label lblTotalFilesNumber;
-        private Label lblTotalFiles;
         private Button btnScan;
+        private CheckBox cbIncludeSubfolders;
+        private TableLayoutPanel tlpStatsStack;
+        private Label lblTotalFiles;
+        private Label lblTotalFilesNumber;
+        private Label lblUniqueFiles;
+        private Label lblUniqueFilesNumber;
+
+        // Unique files
         private GroupBox gbUniqueFiles;
+        private TableLayoutPanel tlpUniqueFiles;
+        private DataGridView dgUniqueFiles;
+        private DataGridViewTextBoxColumn hashDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn Action;
+        private BindingSource bsUniqueFiles;
+        private TableLayoutPanel tlpUniqueButtons;
         private Button btnShowSinlges;
         private Button btnShowDuplicates;
         private Button btnShowAll;
-        private Button btnAutoClean;
         private Button btnShowFilePaths;
-        private Button btnCancel;
-        private ProgressBar progressBar1;
-        private RichTextBox rtbLogger;
+        private Button btnAutoClean;
+
+        // Physical files
         private GroupBox gbPhysicalFiles;
-        private Button btnKeepSelected;
-        private Button btnDeleteSelected;
-        private Button btnKeepFirst;
-        private DataGridView dgUniqueFiles;
-        private BindingSource bsUniqueFiles;
+        private TableLayoutPanel tlpPhysicalFiles;
         private DataGridView dgPhysicalFiles;
-        private BindingSource bsPhysicalFiles;
-        private DataGridViewTextBoxColumn hashDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn Action;
         private DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn Selected;
         private DataGridViewButtonColumn Navigate;
-        private CheckBox cbIncludeSubfolders;
+        private BindingSource bsPhysicalFiles;
+        private TableLayoutPanel tlpPhysicalButtons;
+        private Button btnKeepFirst;
+        private Button btnDeleteSelected;
+        private Button btnKeepSelected;
+
+        // Execution
+        private GroupBox gbExecution;
+        private TableLayoutPanel tlpExecution;
+        private RichTextBox rtbLogger;
+        private ProgressBar progressBar1;
+        private Button btnCancel;
+
         private BindingSource bsIncludeSubfolders;
         private System.ComponentModel.BackgroundWorker bwScan;
     }
