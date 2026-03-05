@@ -11,24 +11,28 @@ namespace DuplicateRemover
         private enum States { NoFolderChosen, ReadyToScan, Scanning, ReadyToClean, Cleaning };
 
         private string? _directory = null;
+        [Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string? Directory
         {
-            get { return _directory; }
+            get => _directory;
             set
             {
                 _directory = value;
-                OnPropertyChanged("Directory");
+                OnPropertyChanged(nameof(Directory));
             }
         }
 
         private bool _includeSubfolders = false;
+        [Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IncludeSubfolders
         {
-            get { return _includeSubfolders; }
+            get => _includeSubfolders;
             set
             {
                 _includeSubfolders = value;
-                OnPropertyChanged("IncludeSubfolders");
+                OnPropertyChanged(nameof(IncludeSubfolders));
             }
         }
 
