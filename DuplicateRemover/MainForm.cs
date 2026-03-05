@@ -10,16 +10,16 @@ namespace DuplicateRemover
         private List<PhysicalFile> _physicalFiles = new();
         private enum States { NoFolderChosen, ReadyToScan, Scanning, ReadyToClean, Cleaning };
 
-        private string? _directory = null;
+        private string? _scanPath = null;
         [Bindable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public string? Directory
+        public string? ScanPath
         {
-            get => _directory;
+            get => _scanPath;
             set
             {
-                _directory = value;
-                OnPropertyChanged(nameof(Directory));
+                _scanPath = value;
+                OnPropertyChanged(nameof(ScanPath));
             }
         }
 
@@ -44,13 +44,13 @@ namespace DuplicateRemover
 
         public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
-        
+
         public MainForm()
         {
             InitializeComponent();
             UpdateFormState(States.NoFolderChosen);
 
-            txbDirectory.DataBindings.Add("Text", this, "Directory", false, DataSourceUpdateMode.OnPropertyChanged);
+            txbScanPath.DataBindings.Add("Text", this, "ScanPath", false, DataSourceUpdateMode.OnPropertyChanged);
             cbIncludeSubfolders.DataBindings.Add("Checked", this, "IncludeSubfolders", false, DataSourceUpdateMode.OnPropertyChanged);
 
             bsUniqueFiles.DataSource = _uniqueFiles;
@@ -64,19 +64,19 @@ namespace DuplicateRemover
         }
 
         #region Form Events
-        private void btnChooseDirectory_Click(object sender, EventArgs e)
+        private void btnChooseScanPath_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
             folderDlg.ShowNewFolderButton = true;
             DialogResult result = folderDlg.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Directory = folderDlg.SelectedPath;
+                ScanPath = folderDlg.SelectedPath;
                 bsUniqueFiles.Clear();
                 bsPhysicalFiles.Clear();
                 UpdateFormState(States.ReadyToScan);
             }
-            if (_directory != null && txbDirectory.Text != string.Empty)
+            if (_scanPath != null && txbScanPath.Text != string.Empty)
             {
                 cbIncludeSubfolders.Enabled = true;
                 btnScan.Enabled = true;
@@ -88,7 +88,7 @@ namespace DuplicateRemover
 
         }
 
-        private void txbDirectory_TextChanged(object sender, EventArgs e)
+        private void txbScanPath_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -115,31 +115,31 @@ namespace DuplicateRemover
             switch (state)
             {
                 case States.NoFolderChosen:
-                    btnChooseDirectory.Enabled = true;
+                    btnChooseScanPath.Enabled = true;
                     cbIncludeSubfolders.Enabled = false;
                     btnScan.Enabled = false;
                     btnShowFilePaths.Enabled = false;
                     break;
                 case States.ReadyToScan:
-                    btnChooseDirectory.Enabled = true;
+                    btnChooseScanPath.Enabled = true;
                     cbIncludeSubfolders.Enabled = true;
                     btnScan.Enabled = true;
                     btnShowFilePaths.Enabled = false;
                     break;
                 case States.Scanning:
-                    btnChooseDirectory.Enabled = false;
+                    btnChooseScanPath.Enabled = false;
                     cbIncludeSubfolders.Enabled = false;
                     btnScan.Enabled = false;
                     btnShowFilePaths.Enabled = false;
                     break;
                 case States.ReadyToClean:
-                    btnChooseDirectory.Enabled = true;
+                    btnChooseScanPath.Enabled = true;
                     cbIncludeSubfolders.Enabled = true;
                     btnScan.Enabled = true;
                     btnShowFilePaths.Enabled = true;
                     break;
                 case States.Cleaning:
-                    btnChooseDirectory.Enabled = false;
+                    btnChooseScanPath.Enabled = false;
                     cbIncludeSubfolders.Enabled = false;
                     btnScan.Enabled = false;
                     btnShowFilePaths.Enabled = false;
@@ -195,13 +195,30 @@ namespace DuplicateRemover
                 rtbLogger.ScrollToCaret();
             }
         }
+
+        private void ShowMessage(string message, string caption = "Information", MessageBoxIcon icon = MessageBoxIcon.Information)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string, string, MessageBoxIcon>(ShowMessage), message, caption, icon);
+            }
+            else
+            {
+                MessageBox.Show(this, message, caption, MessageBoxButtons.OK, icon);
+            }
+        }
         #endregion
 
         #region Background Workers
         private void bwScan_DoWork(object sender, DoWorkEventArgs e)
         {
             AppendTextToLogger("Scanning folder...", null, FontStyle.Bold);
-            //ScanFolder();
+
+            if (string.IsNullOrWhiteSpace(ScanPath) || !Directory.Exists(ScanPath))
+            {
+                AppendTextToLogger("Scan path is invalid!", Color.Red, FontStyle.Bold);
+                return;
+            }
         }
         private void bwScan_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -209,6 +226,9 @@ namespace DuplicateRemover
         }
         private void bwScan_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            AppendTextToLogger("Scan completed!", null, FontStyle.Bold);
+            MessageBox.Show("Scan completed!");
+
             UpdateFormState(States.ReadyToClean);
         }
         #endregion

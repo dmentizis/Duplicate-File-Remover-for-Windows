@@ -30,13 +30,13 @@
             progressBar1 = new ProgressBar();
             btnCancel = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            gbDirectory = new GroupBox();
-            tlpDirectory = new TableLayoutPanel();
-            tlpDirectoryTop = new TableLayoutPanel();
-            lblDirectoryLabel = new Label();
-            txbDirectory = new TextBox();
-            btnChooseDirectory = new Button();
-            tlpDirectoryStats = new TableLayoutPanel();
+            gbScanPath = new GroupBox();
+            tlpScanPath = new TableLayoutPanel();
+            tlpScanPathTop = new TableLayoutPanel();
+            lblScanPathLabel = new Label();
+            txbScanPath = new TextBox();
+            btnChooseScanPath = new Button();
+            tlpScanPathStats = new TableLayoutPanel();
             btnScan = new Button();
             cbIncludeSubfolders = new CheckBox();
             tlpStatsStack = new TableLayoutPanel();
@@ -73,10 +73,10 @@
             gbExecution.SuspendLayout();
             tlpExecution.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            gbDirectory.SuspendLayout();
-            tlpDirectory.SuspendLayout();
-            tlpDirectoryTop.SuspendLayout();
-            tlpDirectoryStats.SuspendLayout();
+            gbScanPath.SuspendLayout();
+            tlpScanPath.SuspendLayout();
+            tlpScanPathTop.SuspendLayout();
+            tlpScanPathStats.SuspendLayout();
             tlpStatsStack.SuspendLayout();
             gbUniqueFiles.SuspendLayout();
             tlpUniqueFiles.SuspendLayout();
@@ -153,7 +153,7 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(gbDirectory, 0, 0);
+            tableLayoutPanel1.Controls.Add(gbScanPath, 0, 0);
             tableLayoutPanel1.Controls.Add(gbUniqueFiles, 0, 1);
             tableLayoutPanel1.Controls.Add(gbPhysicalFiles, 1, 1);
             tableLayoutPanel1.Controls.Add(gbExecution, 0, 2);
@@ -168,101 +168,101 @@
             tableLayoutPanel1.Size = new Size(1253, 693);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // gbDirectory
+            // gbScanPath
             // 
-            tableLayoutPanel1.SetColumnSpan(gbDirectory, 2);
-            gbDirectory.Controls.Add(tlpDirectory);
-            gbDirectory.Dock = DockStyle.Fill;
-            gbDirectory.Location = new Point(7, 7);
-            gbDirectory.Name = "gbDirectory";
-            gbDirectory.Padding = new Padding(4);
-            gbDirectory.Size = new Size(1239, 114);
-            gbDirectory.TabIndex = 0;
-            gbDirectory.TabStop = false;
-            gbDirectory.Text = "Directory";
+            tableLayoutPanel1.SetColumnSpan(gbScanPath, 2);
+            gbScanPath.Controls.Add(tlpScanPath);
+            gbScanPath.Dock = DockStyle.Fill;
+            gbScanPath.Location = new Point(7, 7);
+            gbScanPath.Name = "gbScanPath";
+            gbScanPath.Padding = new Padding(4);
+            gbScanPath.Size = new Size(1239, 114);
+            gbScanPath.TabIndex = 0;
+            gbScanPath.TabStop = false;
+            gbScanPath.Text = "Scan Path";
             // 
-            // tlpDirectory
+            // tlpScanPath
             // 
-            tlpDirectory.ColumnCount = 1;
-            tlpDirectory.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlpDirectory.Controls.Add(tlpDirectoryTop, 0, 0);
-            tlpDirectory.Controls.Add(tlpDirectoryStats, 0, 1);
-            tlpDirectory.Dock = DockStyle.Fill;
-            tlpDirectory.Location = new Point(4, 20);
-            tlpDirectory.Name = "tlpDirectory";
-            tlpDirectory.RowCount = 2;
-            tlpDirectory.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpDirectory.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpDirectory.Size = new Size(1231, 90);
-            tlpDirectory.TabIndex = 0;
+            tlpScanPath.ColumnCount = 1;
+            tlpScanPath.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpScanPath.Controls.Add(tlpScanPathTop, 0, 0);
+            tlpScanPath.Controls.Add(tlpScanPathStats, 0, 1);
+            tlpScanPath.Dock = DockStyle.Fill;
+            tlpScanPath.Location = new Point(4, 20);
+            tlpScanPath.Name = "tlpScanPath";
+            tlpScanPath.RowCount = 2;
+            tlpScanPath.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpScanPath.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpScanPath.Size = new Size(1231, 90);
+            tlpScanPath.TabIndex = 0;
             // 
-            // tlpDirectoryTop
+            // tlpScanPathTop
             // 
-            tlpDirectoryTop.ColumnCount = 3;
-            tlpDirectoryTop.ColumnStyles.Add(new ColumnStyle());
-            tlpDirectoryTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlpDirectoryTop.ColumnStyles.Add(new ColumnStyle());
-            tlpDirectoryTop.Controls.Add(lblDirectoryLabel, 0, 0);
-            tlpDirectoryTop.Controls.Add(txbDirectory, 1, 0);
-            tlpDirectoryTop.Controls.Add(btnChooseDirectory, 2, 0);
-            tlpDirectoryTop.Dock = DockStyle.Fill;
-            tlpDirectoryTop.Location = new Point(3, 3);
-            tlpDirectoryTop.Name = "tlpDirectoryTop";
-            tlpDirectoryTop.RowCount = 1;
-            tlpDirectoryTop.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tlpDirectoryTop.Size = new Size(1225, 39);
-            tlpDirectoryTop.TabIndex = 0;
+            tlpScanPathTop.ColumnCount = 3;
+            tlpScanPathTop.ColumnStyles.Add(new ColumnStyle());
+            tlpScanPathTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpScanPathTop.ColumnStyles.Add(new ColumnStyle());
+            tlpScanPathTop.Controls.Add(lblScanPathLabel, 0, 0);
+            tlpScanPathTop.Controls.Add(txbScanPath, 1, 0);
+            tlpScanPathTop.Controls.Add(btnChooseScanPath, 2, 0);
+            tlpScanPathTop.Dock = DockStyle.Fill;
+            tlpScanPathTop.Location = new Point(3, 3);
+            tlpScanPathTop.Name = "tlpScanPathTop";
+            tlpScanPathTop.RowCount = 1;
+            tlpScanPathTop.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tlpScanPathTop.Size = new Size(1225, 39);
+            tlpScanPathTop.TabIndex = 0;
             // 
-            // lblDirectoryLabel
+            // lblScanPathLabel
             // 
-            lblDirectoryLabel.Anchor = AnchorStyles.None;
-            lblDirectoryLabel.AutoSize = true;
-            lblDirectoryLabel.Location = new Point(3, 12);
-            lblDirectoryLabel.Name = "lblDirectoryLabel";
-            lblDirectoryLabel.Size = new Size(58, 15);
-            lblDirectoryLabel.TabIndex = 0;
-            lblDirectoryLabel.Text = "Directory:";
-            lblDirectoryLabel.TextAlign = ContentAlignment.MiddleLeft;
+            lblScanPathLabel.Anchor = AnchorStyles.None;
+            lblScanPathLabel.AutoSize = true;
+            lblScanPathLabel.Location = new Point(3, 12);
+            lblScanPathLabel.Name = "lblScanPathLabel";
+            lblScanPathLabel.Size = new Size(62, 15);
+            lblScanPathLabel.TabIndex = 0;
+            lblScanPathLabel.Text = "Scan Path:";
+            lblScanPathLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txbDirectory
+            // txbScanPath
             // 
-            txbDirectory.Dock = DockStyle.Fill;
-            txbDirectory.Location = new Point(67, 3);
-            txbDirectory.Name = "txbDirectory";
-            txbDirectory.ReadOnly = true;
-            txbDirectory.Size = new Size(1019, 23);
-            txbDirectory.TabIndex = 1;
-            txbDirectory.TextChanged += txbDirectory_TextChanged;
+            txbScanPath.Dock = DockStyle.Fill;
+            txbScanPath.Location = new Point(71, 3);
+            txbScanPath.Name = "txbScanPath";
+            txbScanPath.ReadOnly = true;
+            txbScanPath.Size = new Size(1015, 23);
+            txbScanPath.TabIndex = 1;
+            txbScanPath.TextChanged += txbScanPath_TextChanged;
             // 
-            // btnChooseDirectory
+            // btnChooseScanPath
             // 
-            btnChooseDirectory.AutoSize = true;
-            btnChooseDirectory.Dock = DockStyle.Fill;
-            btnChooseDirectory.Location = new Point(1092, 3);
-            btnChooseDirectory.MinimumSize = new Size(130, 0);
-            btnChooseDirectory.Name = "btnChooseDirectory";
-            btnChooseDirectory.Size = new Size(130, 33);
-            btnChooseDirectory.TabIndex = 2;
-            btnChooseDirectory.Text = "Choose Directory";
-            btnChooseDirectory.UseVisualStyleBackColor = true;
-            btnChooseDirectory.Click += btnChooseDirectory_Click;
+            btnChooseScanPath.AutoSize = true;
+            btnChooseScanPath.Dock = DockStyle.Fill;
+            btnChooseScanPath.Location = new Point(1092, 3);
+            btnChooseScanPath.MinimumSize = new Size(130, 0);
+            btnChooseScanPath.Name = "btnChooseScanPath";
+            btnChooseScanPath.Size = new Size(130, 33);
+            btnChooseScanPath.TabIndex = 2;
+            btnChooseScanPath.Text = "Choose Scan Path";
+            btnChooseScanPath.UseVisualStyleBackColor = true;
+            btnChooseScanPath.Click += btnChooseScanPath_Click;
             // 
-            // tlpDirectoryStats
+            // tlpScanPathStats
             // 
-            tlpDirectoryStats.ColumnCount = 3;
-            tlpDirectoryStats.ColumnStyles.Add(new ColumnStyle());
-            tlpDirectoryStats.ColumnStyles.Add(new ColumnStyle());
-            tlpDirectoryStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlpDirectoryStats.Controls.Add(btnScan, 0, 0);
-            tlpDirectoryStats.Controls.Add(cbIncludeSubfolders, 1, 0);
-            tlpDirectoryStats.Controls.Add(tlpStatsStack, 2, 0);
-            tlpDirectoryStats.Dock = DockStyle.Fill;
-            tlpDirectoryStats.Location = new Point(3, 48);
-            tlpDirectoryStats.Name = "tlpDirectoryStats";
-            tlpDirectoryStats.RowCount = 1;
-            tlpDirectoryStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpDirectoryStats.Size = new Size(1225, 39);
-            tlpDirectoryStats.TabIndex = 1;
+            tlpScanPathStats.ColumnCount = 3;
+            tlpScanPathStats.ColumnStyles.Add(new ColumnStyle());
+            tlpScanPathStats.ColumnStyles.Add(new ColumnStyle());
+            tlpScanPathStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpScanPathStats.Controls.Add(btnScan, 0, 0);
+            tlpScanPathStats.Controls.Add(cbIncludeSubfolders, 1, 0);
+            tlpScanPathStats.Controls.Add(tlpStatsStack, 2, 0);
+            tlpScanPathStats.Dock = DockStyle.Fill;
+            tlpScanPathStats.Location = new Point(3, 48);
+            tlpScanPathStats.Name = "tlpScanPathStats";
+            tlpScanPathStats.RowCount = 1;
+            tlpScanPathStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpScanPathStats.Size = new Size(1225, 39);
+            tlpScanPathStats.TabIndex = 1;
             // 
             // btnScan
             // 
@@ -626,12 +626,12 @@
             gbExecution.ResumeLayout(false);
             tlpExecution.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
-            gbDirectory.ResumeLayout(false);
-            tlpDirectory.ResumeLayout(false);
-            tlpDirectoryTop.ResumeLayout(false);
-            tlpDirectoryTop.PerformLayout();
-            tlpDirectoryStats.ResumeLayout(false);
-            tlpDirectoryStats.PerformLayout();
+            gbScanPath.ResumeLayout(false);
+            tlpScanPath.ResumeLayout(false);
+            tlpScanPathTop.ResumeLayout(false);
+            tlpScanPathTop.PerformLayout();
+            tlpScanPathStats.ResumeLayout(false);
+            tlpScanPathStats.PerformLayout();
             tlpStatsStack.ResumeLayout(false);
             tlpStatsStack.PerformLayout();
             gbUniqueFiles.ResumeLayout(false);
@@ -652,14 +652,14 @@
 
         private TableLayoutPanel tableLayoutPanel1;
 
-        // Directory
-        private GroupBox gbDirectory;
-        private TableLayoutPanel tlpDirectory;
-        private TableLayoutPanel tlpDirectoryTop;
-        private TableLayoutPanel tlpDirectoryStats;
-        private Label lblDirectoryLabel;
-        private TextBox txbDirectory;
-        private Button btnChooseDirectory;
+        // ScanPath
+        private GroupBox gbScanPath;
+        private TableLayoutPanel tlpScanPath;
+        private TableLayoutPanel tlpScanPathTop;
+        private TableLayoutPanel tlpScanPathStats;
+        private Label lblScanPathLabel;
+        private TextBox txbScanPath;
+        private Button btnChooseScanPath;
         private Button btnScan;
         private CheckBox cbIncludeSubfolders;
         private TableLayoutPanel tlpStatsStack;
