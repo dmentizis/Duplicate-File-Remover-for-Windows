@@ -25,10 +25,6 @@
         {
             components = new System.ComponentModel.Container();
             GroupBox gbExecution;
-            tlpExecution = new TableLayoutPanel();
-            rtbLogger = new RichTextBox();
-            progressBar1 = new ProgressBar();
-            btnCancel = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             gbDirectory = new GroupBox();
             tlpDirectory = new TableLayoutPanel();
@@ -67,11 +63,13 @@
             btnKeepFirst = new Button();
             btnDeleteSelected = new Button();
             btnKeepSelected = new Button();
+            tlpExecution = new TableLayoutPanel();
+            rtbLogger = new RichTextBox();
+            progressBar1 = new ProgressBar();
+            btnCancel = new Button();
             bsIncludeSubfolders = new BindingSource(components);
             bwScan = new System.ComponentModel.BackgroundWorker();
             gbExecution = new GroupBox();
-            gbExecution.SuspendLayout();
-            tlpExecution.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbDirectory.SuspendLayout();
             tlpDirectory.SuspendLayout();
@@ -88,65 +86,10 @@
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).BeginInit();
             tlpPhysicalButtons.SuspendLayout();
+            gbExecution.SuspendLayout();
+            tlpExecution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).BeginInit();
             SuspendLayout();
-            // 
-            // gbExecution
-            // 
-            tableLayoutPanel1.SetColumnSpan(gbExecution, 2);
-            gbExecution.Controls.Add(tlpExecution);
-            gbExecution.Dock = DockStyle.Fill;
-            gbExecution.Location = new Point(7, 719);
-            gbExecution.Name = "gbExecution";
-            gbExecution.Padding = new Padding(4);
-            gbExecution.Size = new Size(1866, 314);
-            gbExecution.TabIndex = 3;
-            gbExecution.TabStop = false;
-            gbExecution.Text = "Execution";
-            // 
-            // tlpExecution
-            // 
-            tlpExecution.ColumnCount = 1;
-            tlpExecution.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlpExecution.Controls.Add(rtbLogger, 0, 0);
-            tlpExecution.Controls.Add(progressBar1, 0, 1);
-            tlpExecution.Controls.Add(btnCancel, 0, 2);
-            tlpExecution.Dock = DockStyle.Fill;
-            tlpExecution.Location = new Point(4, 20);
-            tlpExecution.Name = "tlpExecution";
-            tlpExecution.RowCount = 3;
-            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tlpExecution.Size = new Size(1858, 290);
-            tlpExecution.TabIndex = 0;
-            // 
-            // rtbLogger
-            // 
-            rtbLogger.Dock = DockStyle.Fill;
-            rtbLogger.Location = new Point(3, 3);
-            rtbLogger.Name = "rtbLogger";
-            rtbLogger.Size = new Size(1852, 228);
-            rtbLogger.TabIndex = 0;
-            rtbLogger.Text = "";
-            // 
-            // progressBar1
-            // 
-            progressBar1.Dock = DockStyle.Fill;
-            progressBar1.Location = new Point(3, 237);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(1852, 22);
-            progressBar1.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            btnCancel.Dock = DockStyle.Fill;
-            btnCancel.Location = new Point(3, 265);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(1852, 22);
-            btnCancel.TabIndex = 2;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -165,7 +108,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 320F));
-            tableLayoutPanel1.Size = new Size(1880, 1040);
+            tableLayoutPanel1.Size = new Size(1253, 693);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // gbDirectory
@@ -176,7 +119,7 @@
             gbDirectory.Location = new Point(7, 7);
             gbDirectory.Name = "gbDirectory";
             gbDirectory.Padding = new Padding(4);
-            gbDirectory.Size = new Size(1866, 114);
+            gbDirectory.Size = new Size(1239, 114);
             gbDirectory.TabIndex = 0;
             gbDirectory.TabStop = false;
             gbDirectory.Text = "Directory";
@@ -193,7 +136,7 @@
             tlpDirectory.RowCount = 2;
             tlpDirectory.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tlpDirectory.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpDirectory.Size = new Size(1858, 90);
+            tlpDirectory.Size = new Size(1231, 90);
             tlpDirectory.TabIndex = 0;
             // 
             // tlpDirectoryTop
@@ -210,7 +153,7 @@
             tlpDirectoryTop.Name = "tlpDirectoryTop";
             tlpDirectoryTop.RowCount = 1;
             tlpDirectoryTop.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tlpDirectoryTop.Size = new Size(1852, 39);
+            tlpDirectoryTop.Size = new Size(1225, 39);
             tlpDirectoryTop.TabIndex = 0;
             // 
             // lblDirectoryLabel
@@ -230,7 +173,7 @@
             txbDirectory.Location = new Point(67, 3);
             txbDirectory.Name = "txbDirectory";
             txbDirectory.ReadOnly = true;
-            txbDirectory.Size = new Size(1646, 23);
+            txbDirectory.Size = new Size(1019, 23);
             txbDirectory.TabIndex = 1;
             txbDirectory.TextChanged += txbDirectory_TextChanged;
             // 
@@ -238,7 +181,7 @@
             // 
             btnChooseDirectory.AutoSize = true;
             btnChooseDirectory.Dock = DockStyle.Fill;
-            btnChooseDirectory.Location = new Point(1719, 3);
+            btnChooseDirectory.Location = new Point(1092, 3);
             btnChooseDirectory.MinimumSize = new Size(130, 0);
             btnChooseDirectory.Name = "btnChooseDirectory";
             btnChooseDirectory.Size = new Size(130, 33);
@@ -261,7 +204,7 @@
             tlpDirectoryStats.Name = "tlpDirectoryStats";
             tlpDirectoryStats.RowCount = 1;
             tlpDirectoryStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpDirectoryStats.Size = new Size(1852, 39);
+            tlpDirectoryStats.Size = new Size(1225, 39);
             tlpDirectoryStats.TabIndex = 1;
             // 
             // btnScan
@@ -301,7 +244,7 @@
             tlpStatsStack.RowCount = 2;
             tlpStatsStack.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tlpStatsStack.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpStatsStack.Size = new Size(1635, 33);
+            tlpStatsStack.Size = new Size(1008, 33);
             tlpStatsStack.TabIndex = 5;
             // 
             // lblTotalFiles
@@ -351,7 +294,7 @@
             gbUniqueFiles.Location = new Point(7, 127);
             gbUniqueFiles.Name = "gbUniqueFiles";
             gbUniqueFiles.Padding = new Padding(4);
-            gbUniqueFiles.Size = new Size(930, 586);
+            gbUniqueFiles.Size = new Size(616, 239);
             gbUniqueFiles.TabIndex = 1;
             gbUniqueFiles.TabStop = false;
             gbUniqueFiles.Text = "Unique Items";
@@ -368,7 +311,7 @@
             tlpUniqueFiles.RowCount = 2;
             tlpUniqueFiles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpUniqueFiles.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
-            tlpUniqueFiles.Size = new Size(922, 562);
+            tlpUniqueFiles.Size = new Size(608, 215);
             tlpUniqueFiles.TabIndex = 0;
             // 
             // dgUniqueFiles
@@ -385,7 +328,7 @@
             dgUniqueFiles.Name = "dgUniqueFiles";
             dgUniqueFiles.ReadOnly = true;
             dgUniqueFiles.RowHeadersWidth = 40;
-            dgUniqueFiles.Size = new Size(916, 522);
+            dgUniqueFiles.Size = new Size(602, 175);
             dgUniqueFiles.TabIndex = 0;
             // 
             // hashDataGridViewTextBoxColumn
@@ -425,11 +368,11 @@
             tlpUniqueButtons.Controls.Add(btnShowFilePaths, 3, 0);
             tlpUniqueButtons.Controls.Add(btnAutoClean, 4, 0);
             tlpUniqueButtons.Dock = DockStyle.Fill;
-            tlpUniqueButtons.Location = new Point(3, 531);
+            tlpUniqueButtons.Location = new Point(3, 184);
             tlpUniqueButtons.Name = "tlpUniqueButtons";
             tlpUniqueButtons.RowCount = 1;
             tlpUniqueButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpUniqueButtons.Size = new Size(916, 28);
+            tlpUniqueButtons.Size = new Size(602, 28);
             tlpUniqueButtons.TabIndex = 1;
             // 
             // btnShowSinlges
@@ -437,7 +380,7 @@
             btnShowSinlges.Dock = DockStyle.Fill;
             btnShowSinlges.Location = new Point(3, 3);
             btnShowSinlges.Name = "btnShowSinlges";
-            btnShowSinlges.Size = new Size(177, 22);
+            btnShowSinlges.Size = new Size(114, 22);
             btnShowSinlges.TabIndex = 1;
             btnShowSinlges.Text = "Singles";
             btnShowSinlges.UseVisualStyleBackColor = true;
@@ -445,9 +388,9 @@
             // btnShowDuplicates
             // 
             btnShowDuplicates.Dock = DockStyle.Fill;
-            btnShowDuplicates.Location = new Point(186, 3);
+            btnShowDuplicates.Location = new Point(123, 3);
             btnShowDuplicates.Name = "btnShowDuplicates";
-            btnShowDuplicates.Size = new Size(177, 22);
+            btnShowDuplicates.Size = new Size(114, 22);
             btnShowDuplicates.TabIndex = 2;
             btnShowDuplicates.Text = "Duplicates";
             btnShowDuplicates.UseVisualStyleBackColor = true;
@@ -455,9 +398,9 @@
             // btnShowAll
             // 
             btnShowAll.Dock = DockStyle.Fill;
-            btnShowAll.Location = new Point(369, 3);
+            btnShowAll.Location = new Point(243, 3);
             btnShowAll.Name = "btnShowAll";
-            btnShowAll.Size = new Size(177, 22);
+            btnShowAll.Size = new Size(114, 22);
             btnShowAll.TabIndex = 3;
             btnShowAll.Text = "Show All";
             btnShowAll.UseVisualStyleBackColor = true;
@@ -465,9 +408,9 @@
             // btnShowFilePaths
             // 
             btnShowFilePaths.Dock = DockStyle.Fill;
-            btnShowFilePaths.Location = new Point(552, 3);
+            btnShowFilePaths.Location = new Point(363, 3);
             btnShowFilePaths.Name = "btnShowFilePaths";
-            btnShowFilePaths.Size = new Size(177, 22);
+            btnShowFilePaths.Size = new Size(114, 22);
             btnShowFilePaths.TabIndex = 4;
             btnShowFilePaths.Text = "Paths";
             btnShowFilePaths.UseVisualStyleBackColor = true;
@@ -476,9 +419,9 @@
             // btnAutoClean
             // 
             btnAutoClean.Dock = DockStyle.Fill;
-            btnAutoClean.Location = new Point(735, 3);
+            btnAutoClean.Location = new Point(483, 3);
             btnAutoClean.Name = "btnAutoClean";
-            btnAutoClean.Size = new Size(178, 22);
+            btnAutoClean.Size = new Size(116, 22);
             btnAutoClean.TabIndex = 5;
             btnAutoClean.Text = "Auto Clean";
             btnAutoClean.UseVisualStyleBackColor = true;
@@ -487,10 +430,10 @@
             // 
             gbPhysicalFiles.Controls.Add(tlpPhysicalFiles);
             gbPhysicalFiles.Dock = DockStyle.Fill;
-            gbPhysicalFiles.Location = new Point(943, 127);
+            gbPhysicalFiles.Location = new Point(629, 127);
             gbPhysicalFiles.Name = "gbPhysicalFiles";
             gbPhysicalFiles.Padding = new Padding(4);
-            gbPhysicalFiles.Size = new Size(930, 586);
+            gbPhysicalFiles.Size = new Size(617, 239);
             gbPhysicalFiles.TabIndex = 2;
             gbPhysicalFiles.TabStop = false;
             gbPhysicalFiles.Text = "Physical Files";
@@ -507,7 +450,7 @@
             tlpPhysicalFiles.RowCount = 2;
             tlpPhysicalFiles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpPhysicalFiles.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
-            tlpPhysicalFiles.Size = new Size(922, 562);
+            tlpPhysicalFiles.Size = new Size(609, 215);
             tlpPhysicalFiles.TabIndex = 0;
             // 
             // dgPhysicalFiles
@@ -523,7 +466,7 @@
             dgPhysicalFiles.Location = new Point(3, 3);
             dgPhysicalFiles.Name = "dgPhysicalFiles";
             dgPhysicalFiles.RowHeadersWidth = 40;
-            dgPhysicalFiles.Size = new Size(916, 522);
+            dgPhysicalFiles.Size = new Size(603, 175);
             dgPhysicalFiles.TabIndex = 0;
             // 
             // pathDataGridViewTextBoxColumn
@@ -568,11 +511,11 @@
             tlpPhysicalButtons.Controls.Add(btnDeleteSelected, 1, 0);
             tlpPhysicalButtons.Controls.Add(btnKeepSelected, 2, 0);
             tlpPhysicalButtons.Dock = DockStyle.Fill;
-            tlpPhysicalButtons.Location = new Point(3, 531);
+            tlpPhysicalButtons.Location = new Point(3, 184);
             tlpPhysicalButtons.Name = "tlpPhysicalButtons";
             tlpPhysicalButtons.RowCount = 1;
             tlpPhysicalButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpPhysicalButtons.Size = new Size(916, 28);
+            tlpPhysicalButtons.Size = new Size(603, 28);
             tlpPhysicalButtons.TabIndex = 1;
             // 
             // btnKeepFirst
@@ -580,7 +523,7 @@
             btnKeepFirst.Dock = DockStyle.Fill;
             btnKeepFirst.Location = new Point(3, 3);
             btnKeepFirst.Name = "btnKeepFirst";
-            btnKeepFirst.Size = new Size(299, 22);
+            btnKeepFirst.Size = new Size(194, 22);
             btnKeepFirst.TabIndex = 1;
             btnKeepFirst.Text = "Keep First";
             btnKeepFirst.UseVisualStyleBackColor = true;
@@ -588,9 +531,9 @@
             // btnDeleteSelected
             // 
             btnDeleteSelected.Dock = DockStyle.Fill;
-            btnDeleteSelected.Location = new Point(308, 3);
+            btnDeleteSelected.Location = new Point(203, 3);
             btnDeleteSelected.Name = "btnDeleteSelected";
-            btnDeleteSelected.Size = new Size(299, 22);
+            btnDeleteSelected.Size = new Size(194, 22);
             btnDeleteSelected.TabIndex = 2;
             btnDeleteSelected.Text = "Delete Selected";
             btnDeleteSelected.UseVisualStyleBackColor = true;
@@ -598,12 +541,69 @@
             // btnKeepSelected
             // 
             btnKeepSelected.Dock = DockStyle.Fill;
-            btnKeepSelected.Location = new Point(613, 3);
+            btnKeepSelected.Location = new Point(403, 3);
             btnKeepSelected.Name = "btnKeepSelected";
-            btnKeepSelected.Size = new Size(300, 22);
+            btnKeepSelected.Size = new Size(197, 22);
             btnKeepSelected.TabIndex = 3;
             btnKeepSelected.Text = "Keep Selected";
             btnKeepSelected.UseVisualStyleBackColor = true;
+            // 
+            // gbExecution
+            // 
+            tableLayoutPanel1.SetColumnSpan(gbExecution, 2);
+            gbExecution.Controls.Add(tlpExecution);
+            gbExecution.Dock = DockStyle.Fill;
+            gbExecution.Location = new Point(7, 372);
+            gbExecution.Name = "gbExecution";
+            gbExecution.Padding = new Padding(4);
+            gbExecution.Size = new Size(1239, 314);
+            gbExecution.TabIndex = 3;
+            gbExecution.TabStop = false;
+            gbExecution.Text = "Execution";
+            // 
+            // tlpExecution
+            // 
+            tlpExecution.ColumnCount = 1;
+            tlpExecution.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpExecution.Controls.Add(rtbLogger, 0, 0);
+            tlpExecution.Controls.Add(progressBar1, 0, 1);
+            tlpExecution.Controls.Add(btnCancel, 0, 2);
+            tlpExecution.Dock = DockStyle.Fill;
+            tlpExecution.Location = new Point(4, 20);
+            tlpExecution.Name = "tlpExecution";
+            tlpExecution.RowCount = 3;
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tlpExecution.Size = new Size(1231, 290);
+            tlpExecution.TabIndex = 0;
+            // 
+            // rtbLogger
+            // 
+            rtbLogger.Dock = DockStyle.Fill;
+            rtbLogger.Location = new Point(3, 3);
+            rtbLogger.Name = "rtbLogger";
+            rtbLogger.Size = new Size(1225, 228);
+            rtbLogger.TabIndex = 0;
+            rtbLogger.Text = "";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Dock = DockStyle.Fill;
+            progressBar1.Location = new Point(3, 237);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(1225, 22);
+            progressBar1.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Dock = DockStyle.Fill;
+            btnCancel.Location = new Point(3, 265);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(1225, 22);
+            btnCancel.TabIndex = 2;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // bwScan
             // 
@@ -618,13 +618,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1880, 1040);
+            ClientSize = new Size(1253, 693);
             Controls.Add(tableLayoutPanel1);
             MinimumSize = new Size(480, 320);
             Name = "MainForm";
             Text = "Duplicate File Cleaner";
-            gbExecution.ResumeLayout(false);
-            tlpExecution.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             gbDirectory.ResumeLayout(false);
             tlpDirectory.ResumeLayout(false);
@@ -644,6 +642,8 @@
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).EndInit();
             tlpPhysicalButtons.ResumeLayout(false);
+            gbExecution.ResumeLayout(false);
+            tlpExecution.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).EndInit();
             ResumeLayout(false);
         }
