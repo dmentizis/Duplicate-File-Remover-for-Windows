@@ -8,6 +8,32 @@ namespace DuplicateRemover
         #region Form properties
         private List<UniqueFile> _uniqueFiles = new();
         private List<PhysicalFile> _physicalFiles = new();
+
+        private string _totalFilesNumberText = string.Empty;
+        [Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string TotalFilesNumberText
+        {
+            get => _totalFilesNumberText;
+            set
+            {
+                _totalFilesNumberText = value;
+                OnPropertyChanged(nameof(TotalFilesNumberText));
+            }
+        }
+
+        private string _uniqueFilesNumberText = string.Empty;
+        [Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string UniqueFilesNumberText
+        {
+            get => _uniqueFilesNumberText;
+            set 
+            {
+                _uniqueFilesNumberText = value;
+                OnPropertyChanged(nameof(UniqueFilesNumberText));
+            }
+        }
         private enum States { NoFolderChosen, ReadyToScan, Scanning, ReadyToClean, Cleaning };
 
         private string? _scanPath = null;
@@ -49,6 +75,9 @@ namespace DuplicateRemover
         {
             InitializeComponent();
             UpdateFormState(States.NoFolderChosen);
+
+            lblTotalFilesNumber.DataBindings.Add("Text", this, "TotalFilesNumberText", false, DataSourceUpdateMode.OnPropertyChanged);
+            lblUniqueFilesNumber.DataBindings.Add("Text", this, "UniqueFilesNumberText", false, DataSourceUpdateMode.OnPropertyChanged);
 
             txbScanPath.DataBindings.Add("Text", this, "ScanPath", false, DataSourceUpdateMode.OnPropertyChanged);
             cbIncludeSubfolders.DataBindings.Add("Checked", this, "IncludeSubfolders", false, DataSourceUpdateMode.OnPropertyChanged);
