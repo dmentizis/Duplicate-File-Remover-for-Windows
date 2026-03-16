@@ -98,17 +98,13 @@ namespace DuplicateRemover
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
             folderDlg.ShowNewFolderButton = true;
             DialogResult result = folderDlg.ShowDialog();
+
             if (result == DialogResult.OK)
             {
                 ScanPath = folderDlg.SelectedPath;
                 bsUniqueFiles.Clear();
                 bsPhysicalFiles.Clear();
                 UpdateFormState(States.ReadyToScan);
-            }
-            if (_scanPath != null && txbScanPath.Text != string.Empty)
-            {
-                cbIncludeSubfolders.Enabled = true;
-                btnScan.Enabled = true;
             }
         }
 
@@ -122,7 +118,7 @@ namespace DuplicateRemover
 
         }
 
-        private void btnScanFolderOnly_Click(object sender, EventArgs e)
+        private void btnScan_Click(object sender, EventArgs e)
         {
             bsUniqueFiles.Clear();
             bsPhysicalFiles.Clear();
@@ -131,7 +127,14 @@ namespace DuplicateRemover
 
             if (!bwScan.IsBusy)
             {
-                bwScan.RunWorkerAsync();
+                try
+                {
+                    bwScan.RunWorkerAsync();
+                }
+                catch (Exception ex) 
+                {
+                    AppendTextToLogger(ex.Message, Color.Red, FontStyle.Bold);
+                }
             }
 
             UpdateFormState(States.ReadyToClean);

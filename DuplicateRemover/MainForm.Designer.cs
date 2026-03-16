@@ -265,7 +265,7 @@
             btnScan.TabIndex = 3;
             btnScan.Text = "Scan";
             btnScan.UseVisualStyleBackColor = true;
-            btnScan.Click += btnScanFolderOnly_Click;
+            btnScan.Click += btnScan_Click;
             // 
             // cbIncludeSubfolders
             // 
