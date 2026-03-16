@@ -17,6 +17,10 @@
         {
             components = new System.ComponentModel.Container();
             GroupBox gbExecution;
+            tlpExecution = new TableLayoutPanel();
+            rtbLogger = new RichTextBox();
+            progressBar1 = new ProgressBar();
+            btnCancel = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             gbScanPath = new GroupBox();
             tlpScanPath = new TableLayoutPanel();
@@ -55,13 +59,11 @@
             btnKeepFirst = new Button();
             btnDeleteSelected = new Button();
             btnKeepSelected = new Button();
-            tlpExecution = new TableLayoutPanel();
-            rtbLogger = new RichTextBox();
-            progressBar1 = new ProgressBar();
-            btnCancel = new Button();
             bsIncludeSubfolders = new BindingSource(components);
             bwScan = new System.ComponentModel.BackgroundWorker();
             gbExecution = new GroupBox();
+            gbExecution.SuspendLayout();
+            tlpExecution.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbScanPath.SuspendLayout();
             tlpScanPath.SuspendLayout();
@@ -78,10 +80,65 @@
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).BeginInit();
             tlpPhysicalButtons.SuspendLayout();
-            gbExecution.SuspendLayout();
-            tlpExecution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).BeginInit();
             SuspendLayout();
+            // 
+            // gbExecution
+            // 
+            tableLayoutPanel1.SetColumnSpan(gbExecution, 2);
+            gbExecution.Controls.Add(tlpExecution);
+            gbExecution.Dock = DockStyle.Fill;
+            gbExecution.Location = new Point(7, 279);
+            gbExecution.Name = "gbExecution";
+            gbExecution.Padding = new Padding(4);
+            gbExecution.Size = new Size(786, 314);
+            gbExecution.TabIndex = 3;
+            gbExecution.TabStop = false;
+            gbExecution.Text = "Execution";
+            // 
+            // tlpExecution
+            // 
+            tlpExecution.ColumnCount = 1;
+            tlpExecution.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpExecution.Controls.Add(rtbLogger, 0, 0);
+            tlpExecution.Controls.Add(progressBar1, 0, 1);
+            tlpExecution.Controls.Add(btnCancel, 0, 2);
+            tlpExecution.Dock = DockStyle.Fill;
+            tlpExecution.Location = new Point(4, 20);
+            tlpExecution.Name = "tlpExecution";
+            tlpExecution.RowCount = 3;
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tlpExecution.Size = new Size(778, 290);
+            tlpExecution.TabIndex = 0;
+            // 
+            // rtbLogger
+            // 
+            rtbLogger.Dock = DockStyle.Fill;
+            rtbLogger.Location = new Point(3, 3);
+            rtbLogger.Name = "rtbLogger";
+            rtbLogger.Size = new Size(772, 228);
+            rtbLogger.TabIndex = 0;
+            rtbLogger.Text = "";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Dock = DockStyle.Fill;
+            progressBar1.Location = new Point(3, 237);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(772, 22);
+            progressBar1.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Dock = DockStyle.Fill;
+            btnCancel.Location = new Point(3, 265);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(772, 22);
+            btnCancel.TabIndex = 2;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -540,63 +597,6 @@
             btnKeepSelected.Text = "Keep Selected";
             btnKeepSelected.UseVisualStyleBackColor = true;
             // 
-            // gbExecution
-            // 
-            tableLayoutPanel1.SetColumnSpan(gbExecution, 2);
-            gbExecution.Controls.Add(tlpExecution);
-            gbExecution.Dock = DockStyle.Fill;
-            gbExecution.Location = new Point(7, 279);
-            gbExecution.Name = "gbExecution";
-            gbExecution.Padding = new Padding(4);
-            gbExecution.Size = new Size(786, 314);
-            gbExecution.TabIndex = 3;
-            gbExecution.TabStop = false;
-            gbExecution.Text = "Execution";
-            // 
-            // tlpExecution
-            // 
-            tlpExecution.ColumnCount = 1;
-            tlpExecution.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlpExecution.Controls.Add(rtbLogger, 0, 0);
-            tlpExecution.Controls.Add(progressBar1, 0, 1);
-            tlpExecution.Controls.Add(btnCancel, 0, 2);
-            tlpExecution.Dock = DockStyle.Fill;
-            tlpExecution.Location = new Point(4, 20);
-            tlpExecution.Name = "tlpExecution";
-            tlpExecution.RowCount = 3;
-            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tlpExecution.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tlpExecution.Size = new Size(778, 290);
-            tlpExecution.TabIndex = 0;
-            // 
-            // rtbLogger
-            // 
-            rtbLogger.Dock = DockStyle.Fill;
-            rtbLogger.Location = new Point(3, 3);
-            rtbLogger.Name = "rtbLogger";
-            rtbLogger.Size = new Size(772, 228);
-            rtbLogger.TabIndex = 0;
-            rtbLogger.Text = "";
-            // 
-            // progressBar1
-            // 
-            progressBar1.Dock = DockStyle.Fill;
-            progressBar1.Location = new Point(3, 237);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(772, 22);
-            progressBar1.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            btnCancel.Dock = DockStyle.Fill;
-            btnCancel.Location = new Point(3, 265);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(772, 22);
-            btnCancel.TabIndex = 2;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
-            // 
             // bwScan
             // 
             bwScan.WorkerReportsProgress = true;
@@ -615,6 +615,8 @@
             MinimumSize = new Size(800, 600);
             Name = "MainForm";
             Text = "Duplicate File Cleaner";
+            gbExecution.ResumeLayout(false);
+            tlpExecution.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             gbScanPath.ResumeLayout(false);
             tlpScanPath.ResumeLayout(false);
@@ -634,8 +636,6 @@
             ((System.ComponentModel.ISupportInitialize)dgPhysicalFiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsPhysicalFiles).EndInit();
             tlpPhysicalButtons.ResumeLayout(false);
-            gbExecution.ResumeLayout(false);
-            tlpExecution.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bsIncludeSubfolders).EndInit();
             ResumeLayout(false);
         }
