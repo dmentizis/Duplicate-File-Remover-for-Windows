@@ -6,7 +6,6 @@ namespace DuplicateRemover;
 public record ScanProgress(int Completed, int Total, string Path, int FilePercent);
 public record ScanResult(List<UniqueFile> Files, int Found, int Skipped);
 public record DeleteRequest(UniqueFile Group, string Path, string? KeepPath);
-
 public static class LogicMethods
 {
     public static readonly StringComparer PathComparer = StringComparer.OrdinalIgnoreCase;
