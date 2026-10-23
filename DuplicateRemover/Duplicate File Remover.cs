@@ -69,6 +69,18 @@ public partial class Form1 : Form
         RefreshResults();
     }
 
+    protected override void OnLoad(EventArgs e)
+    {
+        // Apply after initial DPI scaling, when the window's target monitor is known.
+        var workingArea = Screen.FromControl(this).WorkingArea;
+        MinimumSize = new Size(Math.Min(LogicalToDeviceUnits(940), workingArea.Width),
+            Math.Min(LogicalToDeviceUnits(720), workingArea.Height));
+        Size = new Size(Math.Min(Width, workingArea.Width), Math.Min(Height, workingArea.Height));
+        Location = new Point(workingArea.Left + (workingArea.Width - Width) / 2,
+            workingArea.Top + (workingArea.Height - Height) / 2);
+        base.OnLoad(e);
+    }
+
     private void Browse(object? sender, EventArgs e)
     {
         using var dialog = new FolderBrowserDialog { Description = "Choose a folder to find identical file contents", UseDescriptionForTitle = true };

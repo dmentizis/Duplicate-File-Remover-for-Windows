@@ -36,6 +36,14 @@ internal sealed class RoundedButton : Button
         UseVisualStyleBackColor = false;
     }
 
+    public override Size GetPreferredSize(Size proposedSize)
+    {
+        // Measure the same single-line caption used by OnPaint at the current DPI.
+        var textSize = TextRenderer.MeasureText(Text, Font, Size.Empty, TextFormatFlags.SingleLine);
+        return new Size(Math.Max(MinimumSize.Width, textSize.Width + Padding.Horizontal),
+            Math.Max(MinimumSize.Height, textSize.Height + Padding.Vertical));
+    }
+
     protected override void OnMouseEnter(EventArgs e) { _hovered = true; Invalidate(); base.OnMouseEnter(e); }
     protected override void OnMouseLeave(EventArgs e) { _hovered = _pressed = false; Invalidate(); base.OnMouseLeave(e); }
     protected override void OnMouseDown(MouseEventArgs e) { _pressed = e.Button == MouseButtons.Left; Invalidate(); base.OnMouseDown(e); }
@@ -70,6 +78,8 @@ internal sealed class RoundedSurface : Panel
         ResizeRedraw = true;
         Dock = DockStyle.Fill;
         Padding = new Padding(8);
+        AutoSize = content is TextBox;
+        AutoSizeMode = AutoSizeMode.GrowAndShrink;
         content.Dock = content is TextBox ? DockStyle.None : DockStyle.Fill;
         content.BackColor = AppTheme.Surface;
         content.ForeColor = AppTheme.Text;
